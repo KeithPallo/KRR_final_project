@@ -65,19 +65,19 @@
 
 
 
-;;; Second Section
+;;; Scenario 2
 ;;; I really liked Willie’s teaching style. What could I take next quarter with him?
 ;;; (goodClassGivenProf DataScienceSeminar-Fall2018
 ;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
 ;;; ?newCourse)
 
 
-;;; Third Section
+;;; Scenario 3
 ;;; I know what I want to take. Can I take them all schedule-wise?
 ;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
 
 
-;;; Fourth Section
+;;; Scenario 4
 ;;; I really liked the teaching style of KRR and Advanced Deep Learning Topics’ material. 
 ;;; I don’t care about the other two classes as long as they’re EECS. What are my options?
 ;;; (quarterSuggestion ?course1 ?course2 ?course3 ?course4 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 
