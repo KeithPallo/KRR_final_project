@@ -1,0 +1,76 @@
+(in-microtheory CoursesForSocialModelingMt)
+
+
+
+;;; First Section
+;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
+
+(<== (appropriateFor ?course ?term)
+(courseTerm ?course ?term)
+(isa ?course NUCourse-CS))
+(comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
+
+(<==(goodClassGivenTopic ?likedCourse ?nextTerm ?newCourse)
+(appropriateFor ?newCourse ?nextTerm)
+(courseTopic ?likedCourse ?likedTopic)
+(courseTopic ?newCourse ?likedTopic))
+(comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
+
+;;; Test Query:
+;;; (goodClassGivenTopic DataScienceSeminar-Fall2018
+;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
+;;; ?newCourse)
+
+
+
+;;; Second Section
+;;; I really liked Willie’s teaching style. What could I take next quarter with him?
+
+(<==(goodClassGivenProf ?pastCourse ?nextTerm ?newCourse)
+(courseInstructor ?pastCourse ?profName)
+(courseInstructor ?newCourse ?profName)
+(appropriateFor ?newCourse ?nextTerm))
+(comment likedProf “Ensures recommended class is taught by the professor they enjoyed”)
+
+;;; Test Query:
+;;; (goodClassGivenProf DataScienceSeminar-Fall2018
+;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
+;;; ?newCourse)
+
+
+
+;;; Third Section
+;;; I know what I want to take. Can I take them all schedule-wise?
+
+(<==(notOverlap ?course1 ?course2 ?course3 ?course4)
+(courseTimeString ?course1 ?time1)
+(courseTimeString ?course2 ?time2)
+(courseTimeString ?course3 ?time3)
+(courseTimeString ?course4 ?time4)
+(different ?time1 ?time2)
+(different ?time1 ?time3)
+(different ?time1 ?time4)
+(different ?time2 ?time3)
+(different ?time2 ?time4)
+(different ?time3 ?time4))
+(comment notOverlap “Checks that the lecture times of course1, course2, course3, and course4 don’t overlap”)
+
+
+;;; Test Query:
+;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
+
+
+;;; Fourth Section
+
+(<== (differentCourses ?course1 ?course2 ?course3 ?course4)
+(isa ?course1 NUCourse-CS)
+(isa ?course2 NUCourse-CS)
+(isa ?course3 NUCourse-CS)
+(isa ?course4 NUCourse-CS)
+(different ?course1 ?course2)
+(different ?course1 ?course3)
+(different ?course1 ?course4)
+(different ?course2 ?course3)
+(different ?course2 ?course4)
+(different ?course3 ?course4))
+(comment unique “Makes sure course1, course2, course3, and course4 are different courses”)
