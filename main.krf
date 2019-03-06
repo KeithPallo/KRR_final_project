@@ -1,14 +1,11 @@
 (in-microtheory CoursesForSocialModelingMt)
 
 
-
-;;; First Section
-;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
-
 (<== (appropriateFor ?course ?term)
 (courseTerm ?course ?term)
 (isa ?course NUCourse-CS))
 (comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
+
 
 (<==(goodClassGivenTopic ?likedCourse ?nextTerm ?newCourse)
 (appropriateFor ?newCourse ?nextTerm)
@@ -16,31 +13,12 @@
 (courseTopic ?newCourse ?likedTopic))
 (comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
 
-;;; Test Query:
-;;; (goodClassGivenTopic DataScienceSeminar-Fall2018
-;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
-;;; ?newCourse)
-
-
-
-;;; Second Section
-;;; I really liked Willie’s teaching style. What could I take next quarter with him?
 
 (<==(goodClassGivenProf ?pastCourse ?nextTerm ?newCourse)
 (courseInstructor ?pastCourse ?profName)
 (courseInstructor ?newCourse ?profName)
 (appropriateFor ?newCourse ?nextTerm))
 (comment likedProf “Ensures recommended class is taught by the professor they enjoyed”)
-
-;;; Test Query:
-;;; (goodClassGivenProf DataScienceSeminar-Fall2018
-;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
-;;; ?newCourse)
-
-
-
-;;; Third Section
-;;; I know what I want to take. Can I take them all schedule-wise?
 
 (<==(notOverlap ?course1 ?course2 ?course3 ?course4)
 (courseTimeString ?course1 ?time1)
@@ -56,12 +34,6 @@
 (comment notOverlap “Checks that the lecture times of course1, course2, course3, and course4 don’t overlap”)
 
 
-;;; Test Query:
-;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
-
-
-;;; Fourth Section
-
 (<== (differentCourses ?course1 ?course2 ?course3 ?course4)
 (isa ?course1 NUCourse-CS)
 (isa ?course2 NUCourse-CS)
@@ -74,3 +46,40 @@
 (different ?course2 ?course4)
 (different ?course3 ?course4))
 (comment unique “Makes sure course1, course2, course3, and course4 are different courses”)
+
+(<== (quarterSuggestion ?course1 ?course2 ?course3 ?course4 ?faveProfClass ?faveTopicClass ?nextQuarter)
+(goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
+(goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+(appropriateFor ?course3 ?nextTerm)
+(appropriateFor ?course4 ?nextTerm)
+(differentCourses ?course1 ?course2 ?course3 ?course4)
+(notOverlap ?course1 ?course2 ?course3 ?course4))
+(comment quarterSuggestion “Suggests a 4-class schedule for next quarter that work logistically and attempts to satisfy the user’s interests. Course1 attempts to find a class offered nextQuarter taught by the same professor as your favorite professor’s class this quarter. Course 2 attempts to find a class offered nextQuarter of the same topic as your favorite class’ topic this quarter. Course3 and Course4 are gauranteed to be EECS classes that fit with the other 2 classes’ times”)
+
+
+;;; Scenario 1
+;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
+;;; (goodClassGivenTopic DataScienceSeminar-Fall2018
+;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
+;;; ?newCourse)
+
+
+
+;;; Second Section
+;;; I really liked Willie’s teaching style. What could I take next quarter with him?
+;;; (goodClassGivenProf DataScienceSeminar-Fall2018
+;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
+;;; ?newCourse)
+
+
+;;; Third Section
+;;; I know what I want to take. Can I take them all schedule-wise?
+;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
+
+
+;;; Fourth Section
+;;; I really liked the teaching style of KRR and Advanced Deep Learning Topics’ material. 
+;;; I don’t care about the other two classes as long as they’re EECS. What are my options?
+;;; (quarterSuggestion ?course1 ?course2 ?course3 ?course4 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 
+;;; (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+
