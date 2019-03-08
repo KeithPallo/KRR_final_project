@@ -16,6 +16,8 @@
      (isa ?course NUCourse-CS))
 (comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
 
+(appropriateFor IntroductiontoComputerProgramming-Spring2018 ?term )
+
 
 (<== (goodClassGivenTopic ?likedTopic ?nextTerm ?newCourse)
      (appropriateFor ?newCourse ?nextTerm)
@@ -30,42 +32,41 @@
 (comment likedProf “Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm”)
 
 
-(<== (notOverlap ?course1 ?course2 ?course3 ?course4)
+(<== (notOverlap ?course1 ?course2)
      (courseTimeString ?course1 ?time1)
      (courseTimeString ?course2 ?time2)
-     (courseTimeString ?course3 ?time3)
-     (courseTimeString ?course4 ?time4)
-     (different ?time1 ?time2)
-     (different ?time1 ?time3)
-     (different ?time1 ?time4)
-     (different ?time2 ?time3)
-     (different ?time2 ?time4)
-     (different ?time3 ?time4))
+     (different ?time1 ?time2))
 (comment notOverlap “Checks that the lecture times of course1, course2, course3, and course4 don’t overlap”)
 
 
-(<== (differentCourses ?course1 ?course2 ?course3 ?course4)
+(<== (differentCourses ?course1 ?course2)
      (isa ?course1 NUCourse-CS)
      (isa ?course2 NUCourse-CS)
-     (isa ?course3 NUCourse-CS)
-     (isa ?course4 NUCourse-CS)
-     (different ?course1 ?course2)
-     (different ?course1 ?course3)
-     (different ?course1 ?course4)
-     (different ?course2 ?course3)
-     (different ?course2 ?course4)
-     (different ?course3 ?course4))
+     (different ?course1 ?course2))
 (comment unique “Makes sure course1, course2, course3, and course4 are different courses”)
 
 
-(<== (quarterSuggestion ?course1 ?course2 ?course3 ?course4 ?faveProfClass ?faveTopicClass ?nextQuarter)
+; easy version
+
+(<== (quarterSuggestion_1 ?course1 ?course2 ?faveProfClass ?faveTopicClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
      (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
-     (appropriateFor ?course3 ?nextTerm)
-     (appropriateFor ?course4 ?nextTerm)
-     (differentCourses ?course1 ?course2 ?course3 ?course4)
-     (notOverlap ?course1 ?course2 ?course3 ?course4))
-(comment quarterSuggestion “Suggests a 4-class schedule for next quarter that work logistically and attempts to satisfy the user’s interests. Course1 attempts to find a class offered nextQuarter taught by the same professor as your favorite professor’s class this quarter. Course 2 attempts to find a class offered nextQuarter of the same topic as your favorite class’ topic this quarter. Course3 and Course4 are gauranteed to be EECS classes that fit with the other 2 classes’ times”)
+     (differentCourses ?course1 ?course2)
+     (notOverlap ?course1 ?course2))
+
+; medium version
+
+(<== (quarterSuggestion_2 ?course1 ?course2 ?course3 ?faveProfClass ?faveTopicClass ?nextQuarter)
+     (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
+     (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+     (differentCourses ?course1 ?course2)
+     (notOverlap ?course1 ?course2)
+     (appropriateFor ?course3 ?nextQuarter)
+     (differentCourses ?course1 ?course3)
+     (notOverlap ?course1 ?course3)
+     (differentCourses ?course2 ?course3)
+     (notOverlap ?course2 ?course3))
+
 
 
 ;;; ---------Examples using "goodClassGivenTopic"---------
@@ -98,5 +99,5 @@
 ;;; Scenario 5
 ;;; I really liked the teaching style of KRR and Advanced Deep Learning Topics’ material.
 ;;; I don’t care about the other two classes as long as they’re EECS. What are my options?
-;;; (quarterSuggestion ?course1 ?course2 ?course3 ?course4 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018
-;;; (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+(quarterSuggestion_1 ?course1 ?course2 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+(quarterSuggestion_2 ?course1 ?course2 ?course3 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
