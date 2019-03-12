@@ -16,8 +16,6 @@
      (isa ?course NUCourse-CS))
 (comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
 
-(appropriateFor IntroductiontoComputerProgramming-Spring2018 ?term )
-
 
 (<== (goodClassGivenTopic ?likedTopic ?nextTerm ?newCourse)
      (appropriateFor ?newCourse ?nextTerm)
@@ -36,7 +34,7 @@
      (courseTimeString ?course1 ?time1)
      (courseTimeString ?course2 ?time2)
      (different ?time1 ?time2))
-(comment notOverlap “Checks that the lecture times of course1, course2, course3, and course4 don’t overlap”)
+(comment notOverlap “Checks that the lecture times of course1 and course2 don’t overlap”)
 
 
 (<== (differentCourses ?course1 ?course2)
@@ -88,7 +86,8 @@
 ;;; ---------Examples using "notOverlap"---------
 ;;; Scenario 3
 ;;; I know what I want to take. Can I take them all schedule-wise?
-;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
+;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)
+;;; (notOverlap ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
 
 ;;; Scenario 4
 ;;; I want to what are the possible courses I can take without overlapping with the other 3 course.
