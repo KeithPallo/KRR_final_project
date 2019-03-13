@@ -1,64 +1,92 @@
 (in-microtheory CoursesForSocialModelingMt)
 
-;;;---------Facts---------
-(isa aiCourse FirstOrderCollection)
-(genls aiCourse Topic)
-(comment aiCourse "The collection of AI courses")
+;;; --------- Base Knowledge for Reasoning ---------
+(isa ai Collection)
+(genls ai Topic)
+(comment ai "in AI topic")
 
-(isa ArtificialIntelligenceProgramming-Fall2018 aiCourse)
-(isa KnowledgeRepresentationandReasoning-Winter2018 aiCourse)
-(isa MachineLearning-Spring2018 aiCourse)
+(isa inTopic Predicate)
+(arity inTopic 2)
+(arg1Isa inTopic NUCouse-CS)
+(arg2Isa inTopic Topic)
+(comment inTopic "A relation indicating a course in certain topic")
+
+(inTopic ArtificialIntelligenceProgramming-Fall2018 ai)
+(inTopic IntroductiontoArtificialIntelligence-Fall2018 ai)
+(inTopic SemanticInformationProcessing-Winter2018 ai)
+(inTopic KnowledgeRepresentationandReasoning-Winter2018 ai)
+(inTopic StatisticalPatternRecognition-Winter2018 ai)
+(inTopic ProbabilisticGraphicalModels-Winter2018 ai)
+(inTopic MachineLearning-Fall2018 ai)
+(inTopic MachineLearning-Spring2018 ai)
 
 
-;;;---------Rules---------
+;;; ---------Rules---------
 (<== (appropriateFor ?course ?term)
-     (courseTerm ?course ?term)
-     (isa ?course NUCourse-CS))
-(comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
-
-(appropriateFor IntroductiontoComputerProgramming-Spring2018 ?term )
+(courseTerm ?course ?term)
+(isa ?course NUCourse-CS))
+(comment appropriateFor "Ensures ?course is a CS course and is offered in ?term")
 
 
-(<== (goodClassGivenTopic ?likedTopic ?nextTerm ?newCourse)
-     (appropriateFor ?newCourse ?nextTerm)
-     (isa ?newCourse likedTopic))
-(comment goodClassGivenTopic “Ensures the recommended ?newCourse is a CS is in the same topic as the liked class and is offered in ?nextTerm")
+(<== (goodClassGivenTopic ?faveTopicClass ?nextTerm ?newCourse)
+(appropriateFor ?newCourse ?nextTerm)
+(inTopic ?faveTopicClass ?Topic)
+(inTopic ?newCourse ?Topic))
+(comment goodClassGivenTopic "Ensures the recommended ?newCourse is a CS is in the same topic as the liked class and is offered in ?nextTerm")
 
 
-(<== (goodClassGivenProf ?pastCourse ?nextTerm ?newCourse)
-     (courseInstructor ?pastCourse ?profName)
-     (courseInstructor ?newCourse ?profName)
-     (appropriateFor ?newCourse ?nextTerm))
-(comment likedProf “Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm”)
+(<== (goodClassGivenProfCourse ?pastProfCourse ?nextTerm ?newCourse)
+(courseInstructor ?pastProfCourse ?profName)
+(courseInstructor ?newCourse ?profName)
+(appropriateFor ?newCourse ?nextTerm))
+(comment goodClassGivenProfCourse "Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm")
 
 
 (<== (notOverlap ?course1 ?course2)
      (courseTimeString ?course1 ?time1)
      (courseTimeString ?course2 ?time2)
      (different ?time1 ?time2))
-(comment notOverlap “Checks that the lecture times of course1, course2, course3, and course4 don’t overlap”)
+(comment notOverlap "Checks that the lecture times of course1 and course2 don’t overlap")
+
+
+(<== (notOverlap_2 ?course1 ?course2 ?course3 ?course4 ?term)
+     (courseTimeString ?course1 ?time1)
+     (courseTimeString ?course2 ?time2)
+     (different ?time1 ?time2)
+     (courseTimeString ?course3 ?time3)
+     (courseTimeString ?course4 ?time4)
+     (different ?time1 ?time2)
+     (different ?time1 ?time3)
+     (different ?time1 ?time4)
+     (different ?time2 ?time3)
+     (different ?time2 ?time4)
+     (different ?time3 ?time4)
+     (courseTerm ?course1 ?term)
+     (courseTerm ?course2 ?term)
+     (courseTerm ?course3 ?term)
+     (courseTerm ?course4 ?term))
+(comment notOverlap_2 "Checks that the lecture times of course1, course 2, course 3, and course 4 don’t overlap - and ensures they are all in the desired term")
 
 
 (<== (differentCourses ?course1 ?course2)
      (isa ?course1 NUCourse-CS)
      (isa ?course2 NUCourse-CS)
      (different ?course1 ?course2))
-(comment unique “Makes sure course1, course2, course3, and course4 are different courses”)
+(comment differentCourses "Makes sure course1 and course2 are different courses")
 
+;;; Easy Version
 
-; easy version
-
-(<== (quarterSuggestion_1 ?course1 ?course2 ?faveProfClass ?faveTopicClass ?nextQuarter)
+(<== (quarterSuggestion_1 ?course1 ?course2 ?faveTopicClass ?faveProfClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
-     (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+     (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2))
 
-; medium version
+;;; Medium Version
 
-(<== (quarterSuggestion_2 ?course1 ?course2 ?course3 ?faveProfClass ?faveTopicClass ?nextQuarter)
+(<== (quarterSuggestion_2 ?course1 ?course2 ?course3 ?faveTopicClass ?faveProfClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
-     (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+     (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2)
      (appropriateFor ?course3 ?nextQuarter)
@@ -69,35 +97,33 @@
 
 
 
-;;; ---------Examples using "goodClassGivenTopic"---------
+;;; ---------Examples using "goodClassGivenTopic"-------------------
 ;;; Scenario 1
 ;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
-;;; (goodClassGivenTopic aiCourse
-;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
-;;; ?newCourse)
+;;; (goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)
 
 
-;;; ---------Examples using "goodClassGivenProf"---------
+;;; ---------Examples using "goodClassGivenProfCourse"--------------
 ;;; Scenario 2
 ;;; I really liked Willie’s teaching style. What could I take next quarter with him?
-;;; (goodClassGivenProf DataScienceSeminar-Fall2018
-;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
-;;; ?newCourse)
+;;; (goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)
 
 
-;;; ---------Examples using "notOverlap"---------
+;;; ---------Examples using "notOverlap" and "notOverlap_2"---------
 ;;; Scenario 3
-;;; I know what I want to take. Can I take them all schedule-wise?
-;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 PracticuminIntelligentInformationSystems-Fall2018)
+;;; I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise?
+;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)
 
 ;;; Scenario 4
-;;; I want to what are the possible courses I can take without overlapping with the other 3 course.
-;;; ;;; (notOverlap ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018)
+;;; I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind.
+;;; (notOverlap_2 ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
 
 
-;;; ---------Examples using "quarterSuggestion"---------
+;;; ---------Examples using "quarterSuggestion"---------------------
 ;;; Scenario 5
-;;; I really liked the teaching style of KRR and Advanced Deep Learning Topics’ material.
-;;; I don’t care about the other two classes as long as they’re EECS. What are my options?
-(quarterSuggestion_1 ?course1 ?course2 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
-(quarterSuggestion_2 ?course1 ?course2 ?course3 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+;;; I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like?
+;;; (quarterSuggestion_1 ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+
+;;; Scenario 6
+;;; I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take?
+;;; (quarterSuggestion_2 ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
