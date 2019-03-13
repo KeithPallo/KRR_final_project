@@ -1,19 +1,24 @@
 (in-microtheory CoursesForSocialModelingMt)
 
 ;;;---------Facts---------
-(isa aiCourse FirstOrderCollection)
-(genls aiCourse Topic)
-(comment aiCourse "The collection of AI courses")
+(isa ai Collection)
+(genls ai Topic)
+(comment ai "in AI topic")
 
-(isa ArtificialIntelligenceProgramming-Fall2018 aiCourse)
-(isa IntroductiontoArtificialIntelligence-Fall2018 aiCourse)
-(isa IntroductiontoArtificialIntelligence-Winter2018 aiCourse)
-(isa KnowledgeRepresentationandReasoning-Winter2018 aiCourse)
-(isa StatisticalPatternRecognition-Winter2018 aiCourse)
-(isa ProbabilisticGraphicalModels-Winter2018 aiCourse)
-(isa MachineLearning-Fall2018 aiCourse)
-(isa MachineLearning-Spring2018 aiCourse)
+(isa inTopic Predicate)
+(arity inTopic 2)
+(arg1Isa inTopic NUCouse-CS)
+(arg2Isa inTopic Topic)
+(comment inTopic "A relation indicating a course in certain topic")
 
+(inTopic ArtificialIntelligenceProgramming-Fall2018 ai)
+(inTopic IntroductiontoArtificialIntelligence-Fall2018 ai)
+(inTopic IntroductiontoArtificialIntelligence-Winter2018 ai)
+(inTopic KnowledgeRepresentationandReasoning-Winter2018 ai)
+(inTopic StatisticalPatternRecognition-Winter2018 ai)
+(inTopic ProbabilisticGraphicalModels-Winter2018 ai)
+(inTopic MachineLearning-Fall2018 ai)
+(inTopic MachineLearning-Spring2018 ai)
 
 
 ;;;---------Rules---------
@@ -25,8 +30,9 @@
 
 (<== (goodClassGivenTopic ?faveTopicClass ?nextTerm ?newCourse)
      (appropriateFor ?newCourse ?nextTerm)
-     (isa ?faveTopicClass ?likedTopic)
-     (isa ?newCourse ?likedTopic))
+     (inTopic ?faveTopicClass ?Topic)
+     (inTopic ?newCourse ?Topic)
+)
 (comment goodClassGivenTopic “Ensures the recommended ?newCourse is a CS is in the same topic as the liked class and is offered in ?nextTerm")
 
 
@@ -34,7 +40,7 @@
      (courseInstructor ?pastProfCourse ?profName)
      (courseInstructor ?newCourse ?profName)
      (appropriateFor ?newCourse ?nextTerm))
-(comment likedProf “Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm”)
+(comment goodClassGivenProfCourse “Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm”)
 
 
 (<== (notOverlap ?course1 ?course2)
@@ -48,7 +54,7 @@
      (isa ?course1 NUCourse-CS)
      (isa ?course2 NUCourse-CS)
      (different ?course1 ?course2))
-(comment unique “Makes sure course1, course2, course3, and course4 are different courses”)
+(comment differentCourses “Makes sure course1 and course2 are different courses”)
 
 
 ; easy version
@@ -77,7 +83,7 @@
 ;;; ---------Examples using "goodClassGivenTopic"---------
 ;;; Scenario 1
 ;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
-;;; (goodClassGivenTopic aiCourse
+;;; (goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018
 ;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
 ;;; ?newCourse)
 
