@@ -6,8 +6,14 @@
 (comment aiCourse "The collection of AI courses")
 
 (isa ArtificialIntelligenceProgramming-Fall2018 aiCourse)
+(isa IntroductiontoArtificialIntelligence-Fall2018 aiCourse)
+(isa IntroductiontoArtificialIntelligence-Winter2018 aiCourse)
 (isa KnowledgeRepresentationandReasoning-Winter2018 aiCourse)
+(isa StatisticalPatternRecognition-Winter2018 aiCourse)
+(isa ProbabilisticGraphicalModels-Winter2018 aiCourse)
+(isa MachineLearning-Fall2018 aiCourse)
 (isa MachineLearning-Spring2018 aiCourse)
+
 
 
 ;;;---------Rules---------
@@ -17,14 +23,15 @@
 (comment appropriateFor “Ensures ?course is a CS course and is offered in ?term”)
 
 
-(<== (goodClassGivenTopic ?likedTopic ?nextTerm ?newCourse)
+(<== (goodClassGivenTopic ?faveTopicClass ?nextTerm ?newCourse)
      (appropriateFor ?newCourse ?nextTerm)
-     (isa ?newCourse likedTopic))
+     (isa ?faveTopicClass ?likedTopic)
+     (isa ?newCourse ?likedTopic)
 (comment goodClassGivenTopic “Ensures the recommended ?newCourse is a CS is in the same topic as the liked class and is offered in ?nextTerm")
 
 
-(<== (goodClassGivenProf ?pastCourse ?nextTerm ?newCourse)
-     (courseInstructor ?pastCourse ?profName)
+(<== (goodClassGivenProfCourse ?pastProfCourse ?nextTerm ?newCourse)
+     (courseInstructor ?pastProfCourse ?profName)
      (courseInstructor ?newCourse ?profName)
      (appropriateFor ?newCourse ?nextTerm))
 (comment likedProf “Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm”)
@@ -48,7 +55,7 @@
 
 (<== (quarterSuggestion_1 ?course1 ?course2 ?faveProfClass ?faveTopicClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
-     (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+     (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2))
 
@@ -56,7 +63,7 @@
 
 (<== (quarterSuggestion_2 ?course1 ?course2 ?course3 ?faveProfClass ?faveTopicClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
-     (goodClassGivenProf ?faveProfClass ?nextQuarter ?course2)
+     (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2)
      (appropriateFor ?course3 ?nextQuarter)
@@ -75,11 +82,11 @@
 ;;; ?newCourse)
 
 
-;;; ---------Examples using "goodClassGivenProf"---------
+;;; ---------Examples using "goodClassGivenProfCourse"---------
 ;;; Scenario 2
 ;;; I really liked Willie’s teaching style. What could I take next quarter with him?
-;;; (goodClassGivenProf DataScienceSeminar-Fall2018
-;;; (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
+;;; (goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018
+;;; (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018)))
 ;;; ?newCourse)
 
 
@@ -98,5 +105,5 @@
 ;;; Scenario 5
 ;;; I really liked the teaching style of KRR and Advanced Deep Learning Topics’ material.
 ;;; I don’t care about the other two classes as long as they’re EECS. What are my options?
-(quarterSuggestion_1 ?course1 ?course2 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
-(quarterSuggestion_2 ?course1 ?course2 ?course3 ProgrammingLanguages-Fall2018 MachineLearning-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+(quarterSuggestion_1 ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+(quarterSuggestion_2 ?course1 ?course2 ?course3 MachineLearning-Fall2018 IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
