@@ -14,8 +14,8 @@ Analogical Mapping (via the Structure-Mapping Engine)
 
 ## Getting Started
 ### Environment Setup
-- running Companion
-- uploading all `.krf` flatfiles to Companion
+- run Companion
+- upload all `.krf` flatfiles to Companion
 - run queries
 
 ### Directory Structure:
