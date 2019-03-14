@@ -1,22 +1,26 @@
 # Knowledge Representation and Reasoning
 
-## Project Description
-This project is building an Academic Advisor for Computer Science Majors at Northwestern University using knowledge representation and reasoning. All knowledge representation and reasoning are stored in [Cyc-style](https://en.wikipedia.org/wiki/Cyc) microtheories.
+## Project Description - CS Academic Advisor
+In this project our group built an Academic Advisor for Computer Science Majors at Northwestern University using knowledge representation and reasoning. All knowledge representation and reasoning are stored in [Cyc-style](https://en.wikipedia.org/wiki/Cyc) microtheories.
 
 ### Highlights
-Analogical Mapping (via the Structure-Mapping Engine)
+- Usage of Companions [(DARPA Funded project)](https://en.wikipedia.org/wiki/Cyc) <br />
+- Multiple Ways to get recommended courses <br />
+- Analogical Course Mapping (via the Structure-Mapping Engine)
 
-## Team Members:
+### Team Members:
 - Nico Tyjeski
 - Harper Pack
 - Keith Pallo
 - Albert Guo
 
-## Getting Started
 ### Environment Setup
+
+To get setup please do the following:
+
 - run Companion
 - upload all `.krf` flatfiles to Companion
-- run queries
+- run queries (explanation show below)
 
 ### Directory Structure:
      .
@@ -26,12 +30,49 @@ Analogical Mapping (via the Structure-Mapping Engine)
      ├── analogy.krf            # file that contains analogy examples
      └── main.krf               # main file that contains defined ontology, facts, and rules
 
-### Overview of Use Cases
-Scenario 1
-I really liked learning about KRR. What could I take to expand upon that knowledge? <br />
-`(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
-Scenario 2
+# Overview of Motivation
+
+In this project, our group aimed to create an interactive version of an academic CS advisor. The motivation for this project came from some of the difficulties that arise when any Northwestern Computer Science Student is trying to plan out their future course schedule.
+
+
+Currently, there are several different resources that exist for students to plan out their courses. These include published course manuals, assigned academic advisors, peer course reviews (in our case CTECs) and several other systems. However, these methods often fall short as this usually results in a time consuming cycle where students move from resource to recource - partically getting information as shown here.
+
+
+![Image_1](/images/readme_image_1.png)
+
+
+
+In order to allerivate this challenge we wish to change the model from the student having to access and manage individual resources to the student being able to interface with one holistic system as seen here.
+
+![Image_2](/images/readme_image_2.png)
+
+
+Overall, using companions we believe that we have created a system that allows CS students to ask the CS Advisor questions we personally have had. These range from simply checking if two classes are the same, two reasoning if two classes are similar based on multiple criteria. In this particular project, we have limited the scope of our queries to focus on planning one quarter ahead - although virtually all of our core representation and reasoning could easily be extended.  
+
+------------------------------------------------------------------------------
+
+Note: In our repo we have also included a presentation called < > which further details the background of our project, and the goals for the system that we have created.
+
+
+
+# Project Structure
+
+Our project is structured into two main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
+
+
+
+### File 1 - main.krf
+
+Representation: In this file we utilize representation by ....
+
+Reasoning: Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
+
+#### Scenario 1 --- Usage of defined rule goodClassGivenTopic <br />
+I really liked learning about KRR. What could I take to expand upon that knowledge? <br />
+Example Query: `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
+
+#### Scenario 2  --- Usage of defined rule goodClassGivenProfCourse  <br />
 I really liked Willie’s teaching style. What could I take next quarter with him? <br />
 `(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
@@ -50,3 +91,13 @@ I really liked the Intro to AI course material and the teaching style of Machine
 Scenario 6
 I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br />
 `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+
+
+### File 2 - analogy.krf
+
+This file represents the core advanced reasoning that our system enables - which is analogy.
+
+Representation:
+
+
+Reasoning:
