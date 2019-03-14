@@ -4,9 +4,9 @@
 In this project our group built an Academic Advisor for Computer Science Majors at Northwestern University using knowledge representation and reasoning. All knowledge representation and reasoning are stored in [Cyc-style](https://en.wikipedia.org/wiki/Cyc) microtheories.
 
 ### Highlights
-- Usage of Companions [(DARPA Funded project)](https://en.wikipedia.org/wiki/Cyc) <br />
-- Multiple Ways to get recommended courses <br />
-- Analogical Course Mapping (via the Structure-Mapping Engine)
+- Usage of [Companion Cognitive Systems](http://www.qrg.northwestern.edu/ideas/companions-idea.htm), a [DARPA IPTO](https://en.wikipedia.org/wiki/Information_Processing_Techniques_Office) funded project
+- Analogical Matching (via the Structure-Mapping Engine) for similar courses
+- Multiple ways to recommend courses
 
 ### Team Members:
 - Nico Tyjeski
@@ -15,9 +15,7 @@ In this project our group built an Academic Advisor for Computer Science Majors 
 - Albert Guo
 
 ### Environment Setup
-
 To get setup please do the following:
-
 - run Companion
 - upload all `.krf` flatfiles to Companion
 - run queries (explanation show below)
@@ -27,26 +25,23 @@ To get setup please do the following:
      ├── .gitignore             # contains file types not to be synced with GitHub
      ├── Presentation.pptx      # project presentation                               
      ├── README.md                               
+     ├── The FIRE Manual.pdf    # manual of the FIRE reasoning engine of Companion Cognitive Systems
      ├── analogy.krf            # file that contains analogy examples
+     ├── analogy_scaled.krf     # file that contains analogy examples that scaled significantly
      └── main.krf               # main file that contains defined ontology, facts, and rules
 
 
 # Overview of Motivation
-
 In this project, our group aimed to create an interactive version of an academic CS advisor. The motivation for this project came from some of the difficulties that arise when any Northwestern Computer Science Student is trying to plan out their future course schedule.
 
 
 Currently, there are several different resources that exist for students to plan out their courses. These include published course manuals, assigned academic advisors, peer course reviews (in our case CTECs) and several other systems. However, these methods often fall short as this usually results in a time consuming cycle where students move from resource to recource - partically getting information as shown here.
 
-
 ![Image_1](/images/readme_image_1.png)
-
-
 
 In order to allerivate this challenge we wish to change the model from the student having to access and manage individual resources to the student being able to interface with one holistic system as seen here.
 
 ![Image_2](/images/readme_image_2.png)
-
 
 Overall, using companions we believe that we have created a system that allows CS students to ask the CS Advisor questions we personally have had. These range from simply checking if two classes are the same, two reasoning if two classes are similar based on multiple criteria. In this particular project, we have limited the scope of our queries to focus on planning one quarter ahead - although virtually all of our core representation and reasoning could easily be extended.  
 
@@ -55,11 +50,8 @@ Overall, using companions we believe that we have created a system that allows C
 Note: In our repo we have also included a presentation called < > which further details the background of our project, and the goals for the system that we have created.
 
 
-
 # Project Structure
-
 Our project is structured into two main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
-
 
 
 ### File 1 - main.krf
