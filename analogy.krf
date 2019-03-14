@@ -16,50 +16,59 @@
 
 
 ;;; --------- Define Cases ---------
-(isa CourseDescription1Mt Microtheory)
-(isa CourseDescription2Mt Microtheory)
-(isa CourseDescription3Mt Microtheory)
-(isa CourseDescription4Mt Microtheory)
+(isa ProbabilisticGraphicalModels-Winter2018DescriptionMt Microtheory)
+(isa TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt Microtheory)
+(isa SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt Microtheory)
+(isa StatisticalPatternRecognition-Winter2018DescriptionMt Microtheory)
 
-(isa CourseDescription1Mt Case)
-(isa CourseDescription2Mt Case)
-(isa CourseDescription3Mt Case)
-(isa CourseDescription4Mt Case)
+(isa ProbabilisticGraphicalModels-Winter2018DescriptionMt Case)
+(isa TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt Case)
+(isa SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt Case)
+(isa StatisticalPatternRecognition-Winter2018DescriptionMt Case)
 
 
 
 ;;; --------- Define CaseLibrary ---------
 (isa similarCourses CaseLibrary)
-(caseLibraryContains similarCourses CourseDescription1Mt)
-(caseLibraryContains similarCourses CourseDescription2Mt)
-(caseLibraryContains similarCourses CourseDescription3Mt)
-(caseLibraryContains similarCourses CourseDescription4Mt)
+(caseLibraryContains similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt)
+(caseLibraryContains similarCourses TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt)
+(caseLibraryContains similarCourses SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt)
+(caseLibraryContains similarCourses StatisticalPatternRecognition-Winter2018DescriptionMt)
 
 
 
 ;;; --------- Define Case Properties ---------
-(in-microtheory CourseDescription1Mt)
-(genlMt CourseDescription1Mt CSAcademicAdvisor)
+(in-microtheory ProbabilisticGraphicalModels-Winter2018DescriptionMt)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
 (probabilityRelated ProbabilisticGraphicalModels-Winter2018)
 (mathHeavy ProbabilisticGraphicalModels-Winter2018)
 
 
 
-(in-microtheory CourseDescription2Mt)
-(genlMt CourseDescription1Mt CSAcademicAdvisor)
+(in-microtheory TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
 (probabilityRelated TopicsinTheoreticalMachineLearning-Winter2018)
 (mathHeavy TopicsinTheoreticalMachineLearning-Winter2018)
 
 
 
-(in-microtheory CourseDescription3Mt)
-(genlMt CourseDescription1Mt CSAcademicAdvisor)
+(in-microtheory SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
 (probabilityRelated SeminarinStatisticalLanguageModeling-Winter2018)
 (mathHeavy SeminarinStatisticalLanguageModeling-Winter2018)
 
 
 
-(in-microtheory CourseDescription4Mt)
-(genlMt CourseDescription1Mt CSAcademicAdvisor)
+(in-microtheory StatisticalPatternRecognition-Winter2018DescriptionMt)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
 (probabilityRelated StatisticalPatternRecognition-Winter2018)
 (mathHeavy StatisticalPatternRecognition-Winter2018)
+
+
+
+;;; --------- Example using analogy ---------
+;;; Scenario
+;;; What are some similar courses to ProbabilisticGraphicalModels-Winter2018?
+;;; (reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt
+;;; (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet)
+;;; ?similarCourse ?match)
