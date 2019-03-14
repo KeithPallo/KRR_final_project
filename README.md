@@ -1,7 +1,7 @@
 # Knowledge Representation and Reasoning
 
 ## Project Description
-Academic Advisor for Computer Science Majors
+Academic Advisor for Computer Science Majors at Northwestern University
 
 ## Team Members:
 - Nico Tyjeski
