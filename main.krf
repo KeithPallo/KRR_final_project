@@ -1,9 +1,13 @@
-(in-microtheory CoursesForSocialModelingMt)
+(in-microtheory CSAcademicAdvisor)
+(genlMt CSAcademicAdvisor CoursesForSocialModelingMt)
+
+
 
 ;;; --------- Define Ontology ---------
 (isa AI Collection)
 (genls AI Topic)
 (comment AI "in AI topic")
+
 
 (isa inTopic Predicate)
 (arity inTopic 2)
@@ -11,20 +15,13 @@
 (arg2Isa inTopic Topic)
 (comment inTopic "A relation indicating a course in certAIn topic")
 
-(inTopic ArtificialIntelligenceProgramming-Fall2018 AI)
-(inTopic IntroductiontoArtificialIntelligence-Fall2018 AI)
-(inTopic SemanticInformationProcessing-Winter2018 AI)
-(inTopic KnowledgeRepresentationandReasoning-Winter2018 AI)
-(inTopic StatisticalPatternRecognition-Winter2018 AI)
-(inTopic ProbabilisticGraphicalModels-Winter2018 AI)
-(inTopic MachineLearning-Fall2018 AI)
-(inTopic MachineLearning-Spring2018 AI)
 
 (isa appropriateFor Predicate)
 (arity appropriateFor 2)
-(arg1Isa appropriateFor NUCouse-CS )
+(arg1Isa appropriateFor NUCouse-CS)
 (arg2Isa appropriateFor AcademicQuarter)
 (comment appropriateFor "Ensures ?course is a CS course and is offered in ?term")
+
 
 (isa goodClassGivenTopic Predicate)
 (arity goodClassGivenTopic 3)
@@ -33,6 +30,7 @@
 (arg3Isa goodClassGivenTopic NUCouse-CS)
 (comment goodClassGivenTopic "Ensures the recommended ?newCourse is a CS is in the same topic as the liked class and is offered in ?nextTerm")
 
+
 (isa goodClassGivenProfCourse Predicate)
 (arity goodClassGivenProfCourse 3)
 (arg1Isa goodClassGivenProfCourse NUCouse-CS)
@@ -40,11 +38,13 @@
 (arg3Isa goodClassGivenProfCourse NUCouse-CS)
 (comment goodClassGivenProfCourse "Ensures the recommended ?newCourse is taught by the liked professor and is offered in ?nextTerm")
 
+
 (isa notOverlap Predicate)
 (arity notOverlap 2)
 (arg1Isa notOverlap NUCouse-CS)
 (arg2Isa notOverlap NUCouse-CS)
 (comment notOverlap "Checks that the lecture times of course1 and course2 don’t overlap")
+
 
 (isa notOverlapTwo Predicate)
 (arity notOverlapTwo 5)
@@ -54,6 +54,7 @@
 (arg4Isa notOverlapTwo NUCouse-CS)
 (arg5Isa notOverlapTwo AcademicQuarter)
 (comment notOverlapTwo "Checks that the lecture times of course1, course 2, course 3, and course 4 don’t overlap - and ensures they are all in the desired term")
+
 
 (isa differentCourses Predicate)
 (arity differentCourses 2)
@@ -84,12 +85,23 @@
 
 
 
-;;; ------ Rule Definitions ---------
+;;; --------- Define Facts ---------
+(inTopic ArtificialIntelligenceProgramming-Fall2018 AI)
+(inTopic IntroductiontoArtificialIntelligence-Fall2018 AI)
+(inTopic SemanticInformationProcessing-Winter2018 AI)
+(inTopic KnowledgeRepresentationandReasoning-Winter2018 AI)
+(inTopic StatisticalPatternRecognition-Winter2018 AI)
+(inTopic ProbabilisticGraphicalModels-Winter2018 AI)
+(inTopic MachineLearning-Fall2018 AI)
+(inTopic MachineLearning-Spring2018 AI)
 
 
+
+;;; --------- Define Rules ---------
 (<== (appropriateFor ?course ?term)
 (courseTerm ?course ?term)
 (isa ?course NUCourse-CS))
+
 
 (<== (goodClassGivenTopic ?faveTopicClass ?nextTerm ?newCourse)
 (appropriateFor ?newCourse ?nextTerm)
@@ -127,21 +139,17 @@
      (courseTerm ?course4 ?term))
 
 
-
 (<== (differentCourses ?course1 ?course2)
      (isa ?course1 NUCourse-CS)
      (isa ?course2 NUCourse-CS)
      (different ?course1 ?course2))
 
-;;; Easy Version
 
 (<== (quarterSuggestionOne ?course1 ?course2 ?faveTopicClass ?faveProfClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
      (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2))
-
-;;; Medium Version
 
 (<== (quarterSuggestionTwo ?course1 ?course2 ?course3 ?faveTopicClass ?faveProfClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
@@ -156,19 +164,19 @@
 
 
 
-;;; ---------Examples using "goodClassGivenTopic"-------------------
+;;; --------- Examples using "goodClassGivenTopic" ---------
 ;;; Scenario 1
 ;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
 ;;; (goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)
 
 
-;;; ---------Examples using "goodClassGivenProfCourse"--------------
+;;; --------- Examples using "goodClassGivenProfCourse" ---------
 ;;; Scenario 2
 ;;; I really liked Willie’s teaching style. What could I take next quarter with him?
 ;;; (goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)
 
 
-;;; ---------Examples using "notOverlap" and "notOverlapTwo"---------
+;;; --------- Examples using "notOverlap" and "notOverlapTwo" ---------
 ;;; Scenario 3
 ;;; I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise?
 ;;; (notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)
@@ -178,7 +186,7 @@
 ;;; (notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
 
 
-;;; ---------Examples using "quarterSuggestion"---------------------
+;;; --------- Examples using "quarterSuggestion" ---------
 ;;; Scenario 5
 ;;; I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like?
 ;;; (quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
