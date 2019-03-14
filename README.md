@@ -16,6 +16,7 @@ Academic Advisor for Computer Science Majors at Northwestern University
 ### Directory Structure:
      .
      ├── .gitignore             # contains file types not to be synced with GitHub
+     ├── Presentation.pptx      # project presentation                               
      ├── README.md                               
      ├── analogy.krf            # file that contains analogy examples
      └── main.krf               # main file that contains defined ontology, facts, and rules
