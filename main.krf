@@ -163,6 +163,8 @@
      (notOverlap ?course2 ?course3))
 
 
+;;; References for queries as shown in README
+
 
 ;;; --------- Examples using "goodClassGivenTopic" ---------
 ;;; Scenario 1

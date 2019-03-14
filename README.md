@@ -30,6 +30,8 @@ To get setup please do the following:
      ├── analogy.krf            # file that contains analogy examples
      └── main.krf               # main file that contains defined ontology, facts, and rules
 
+------------------------------------------------------------------------------
+
 
 # Overview of Motivation
 
@@ -50,54 +52,80 @@ In order to allerivate this challenge we wish to change the model from the stude
 
 Overall, using companions we believe that we have created a system that allows CS students to ask the CS Advisor questions we personally have had. These range from simply checking if two classes are the same, two reasoning if two classes are similar based on multiple criteria. In this particular project, we have limited the scope of our queries to focus on planning one quarter ahead - although virtually all of our core representation and reasoning could easily be extended.  
 
-------------------------------------------------------------------------------
 
 Note: In our repo we have also included a presentation called < > which further details the background of our project, and the goals for the system that we have created.
 
+------------------------------------------------------------------------------
 
 
 # Project Structure
 
-Our project is structured into two main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
+Our project is structured into XXXX main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
 
+After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
+<br/>
 
-### File 1 - main.krf
+## File 1 - main.krf
 
 Representation: In this file we utilize representation by ....
 
 Reasoning: Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
 
-#### Scenario 1 --- Usage of defined rule goodClassGivenTopic <br />
-I really liked learning about KRR. What could I take to expand upon that knowledge? <br />
+
+#### Scenario 1 --- goodClassGivenTopic <br />
+I really liked learning about KRR. What could I take to expand upon that knowledge? <br/>
 Example Query: `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
-#### Scenario 2  --- Usage of defined rule goodClassGivenProfCourse  <br />
-I really liked Willie’s teaching style. What could I take next quarter with him? <br />
-`(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
+#### Scenario 2  --- goodClassGivenProfCourse  <br />
+I really liked Willie’s teaching style. What could I take next quarter with him? <br/>
+Example Query: `(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
-Scenario 3
-I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br />
-`(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
+#### Scenario 3  ---  notOverlap <br/>
+I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br/>
+Example Query: `(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
 
-Scenario 4
-I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br />
-`(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+#### Scenario 4 --- notOverlapTwo <br/>
+I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br/>
+Example Query: `(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-Scenario 5
-I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like? <br />
-`(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+#### Scenario 5 --- quarterSuggestionOne <br/>
+I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like? <br/>
+Example Query: `(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-Scenario 6
-I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br />
-`(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+#### Scenario 6 ---- quarterSuggestionTwo <br/>
+I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br/>
+Example Query: `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
+<br/>
 
-### File 2 - analogy.krf
+## File 2 - analogy.krf
 
 This file represents the core advanced reasoning that our system enables - which is analogy.
 
-Representation:
+Representation: ....
 
 
-Reasoning:
+Reasoning: ....
+
+<br/>
+
+### File 3 - analogy_scaled.krf
+
+Representation: ....
+
+Reasoning: ....
+
+<br/>
+
+### File 4 - <Harpers File> 
+
+Representation: ....
+
+Reasoning: ....
+
+<br/>
+
+------------------------------------------------------------------------------
+
+Special Thanks: We would like to thank our class professors
