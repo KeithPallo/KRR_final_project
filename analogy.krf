@@ -63,3 +63,8 @@
 (genlMt CourseDescription1Mt CSAcademicAdvisor)
 (probabilityRelated StatisticalPatternRecognition-Winter2018)
 (mathHeavy StatisticalPatternRecognition-Winter2018)
+
+
+;;; Related Queries
+
+;;; (reminding CourseDescription1Mt (CaseLibrarySansFn similarCourses CourseDescription1Mt) (TheSet) ?similarCourse ?match)
