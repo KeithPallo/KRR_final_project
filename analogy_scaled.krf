@@ -1,6 +1,9 @@
 (in-microtheory AnalogyScaledMt)
 (genlMt AnalogyScaledMt CSAcademicAdvisor)
 
+
+
+;;; --------- Define Ontology ---------
 ;;; (sameProgrammingLanguage ?course1 ?course2)
 (isa sameProgrammingLanguage Predicate)
 (arity sameProgrammingLanguage 2)
@@ -116,6 +119,9 @@
 
 (isa ArtificialIntelligence-Topic AcademicTopic)
 
+
+
+;;; --------- Define Cases ---------
 (isa IntroToAI-Fall2018DescriptionMt Microtheory)
 (isa NLP-Winter2018DescriptionMt Microtheory)
 (isa ML-Fall2018DescriptionMt Microtheory)
@@ -130,6 +136,9 @@
 (isa CI-Spring2018DescriptionMt Case)
 (isa KRR-Winter2018DescriptionMt Case)
 
+
+
+;;; --------- Define CaseLibrary ---------
 (isa CourseDescriptionsCaseLibrary CaseLibrary)
 (caseLibraryContains CourseDescriptionsCaseLibrary IntroToAI-Fall2018DescriptionMt)
 (caseLibraryContains CourseDescriptionsCaseLibrary NLP-Winter2018DescriptionMt)
@@ -139,6 +148,7 @@
 
 
 
+;;; --------- Define Case Properties ---------
 (in-microtheory IntroToAI-Fall2018DescriptionMt)
 (genlMt IntroToAI-Fall2018DescriptionMt CoursesForSocialModelingMt)
 (courseInstructor IntroToAI-Fall2018 WillieWilson)
