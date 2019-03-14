@@ -1,0 +1,268 @@
+(in-microtheory AnalogyScaledMt)
+(genlMt AnalogyScaledMt CSAcademicAdvisor)
+
+
+
+;;; --------- Define Ontology ---------
+;;; (sameProgrammingLanguage ?course1 ?course2)
+(isa sameProgrammingLanguage Predicate)
+(arity sameProgrammingLanguage 2)
+(arg1Isa sameProgrammingLanguage NUCourse)
+(arg2Isa sameProgrammingLanguage NUCourse)
+(comment sameProgrammingLanguage "(sameProgrammingLanguage ?course1 ?course2) says that the same programming language is used in ?course1 and ?course2")
+
+;;; (requiredFor ?course1 ?course2)
+(isa requiredFor Predicate)
+(arity requiredFor 2)
+(arg1Isa requiredFor NUCourse)
+(arg2Isa requiredFor NUCourse)
+(comment requiredFor "(requiredFor ?course1 ?course2) says that ?course1 is required for ?course2")
+
+;;; (laysFoundationFor ?course1 ?course2)
+(isa laysFoundationFor Predicate)
+(arity laysFoundationFor 2)
+(arg1Isa laysFoundationFor NUCourse)
+(arg2Isa laysFoundationFor NUCourse)
+(comment laysFoundationFor "(laysFoundationFor ?course1 ?course2) says that ?course1 provides important context and skills which are important for ?course2")
+
+;;; (sameProfessor ?course1 ?course2)
+(isa sameProfessor Predicate)
+(arity sameProfessor 2)
+(arg1Isa sameProfessor NUCourse)
+(arg2Isa sameProfessor NUCourse)
+(comment sameProfessor "(sameProfessor ?course1 ?course2) says that ?course1 and ?course2 have the same courseInstructor")
+
+;;; (sharesTopicsWith ?course1 ?course2)
+(isa sharesTopicsWith Predicate)
+(arity sharesTopicsWith 2)
+(arg1Isa sharesTopicsWith NUCourse)
+(arg2Isa sharesTopicsWith NUCourse)
+(comment sharesTopicsWith "(sharesTopicsWith ?course1 ?course2) says that ?course1 and ?course2 cover some of the same topics")
+
+;;; (similarContentApproach ?course1 ?course2)
+(isa similarContentApproach Predicate)
+(arity similarContentApproach 2)
+(arg1Isa similarContentApproach NUCourse)
+(arg2Isa similarContentApproach NUCourse)
+(comment similarContentApproach "(similarContentApproach ?course1 ?course2) says that ?course1 and ?course2 cover the content domain in a similar way")
+
+;;; (moreOfficeHoursThan ?course1 ?course2)
+(isa moreOfficeHoursThan Predicate)
+(arity moreOfficeHoursThan 2)
+(arg1Isa moreOfficeHoursThan NUCourse)
+(arg2Isa moreOfficeHoursThan NUCourse)
+(comment moreOfficeHoursThan "(moreOfficeHoursThan ?course1 ?course2) says that ?course1 has more office hours than ?course2")
+
+;;; (breadthInTopic ?course1 ?topic1)
+(isa breadthInTopic Predicate)
+(arity breadthInTopic 2)
+(arg1Isa breadthInTopic NUCourse)
+(arg2Isa breadthInTopic AcademicTopic)
+(comment breadthInTopic "(breadthInTopic ?course1 ?topic1) says that ?course1 covers a breadth of topics within ?topic1")
+
+;;; (depthInTopic ?course1 ?topic1)
+(isa depthInTopic Predicate)
+(arity depthInTopic 2)
+(arg1Isa depthInTopic NUCourse)
+(arg2Isa depthInTopic AcademicTopic)
+(comment depthInTopic "(depthInTopic ?course1 ?topic1) says that ?course1 covers a topic within ?topic1 in depth")
+
+;;; (differentAIApproach ?course1 ?course2)
+(isa differentAIApproach Predicate)
+(arity differentAIApproach 2)
+(arg1Isa differentAIApproach NUCourse)
+(arg2Isa differentAIApproach NUCourse)
+(comment differentAIApproach "(differentAIApproach ?course1 ?course2) says that ?course1 exposes students to a different perspective on what constitutes AI than does ?course2")
+
+;;; (differentContentApproach ?course1 ?course2)
+(isa differentContentApproach Predicate)
+(arity differentContentApproach 2)
+(arg1Isa differentContentApproach NUCourse)
+(arg2Isa differentContentApproach NUCourse)
+(comment differentContentApproach "(differentContentApproach ?course1 ?course2) says that ?course1 and ?course2 cover the content domain in a different way")
+
+;;; (lessPopularThan ?course1 ?course2)
+(isa lessPopularThan Predicate)
+(arity lessPopularThan 2)
+(arg1Isa lessPopularThan NUCourse)
+(arg2Isa lessPopularThan NUCourse)
+(comment lessPopularThan "(lessPopularThan ?course1 ?course2) says that ?course1 is less popular among students than ?course2")
+
+;;; (moreDifficultThan ?course1 ?course2)
+(isa moreDifficultThan Predicate)
+(arity moreDifficultThan 2)
+(arg1Isa moreDifficultThan NUCourse)
+(arg2Isa moreDifficultThan NUCourse)
+(comment moreDifficultThan "(moreDifficultThan ?course1 ?course2) says that ?course1 is more challenging than ?course2")
+
+;;; (sameSizeOfProjectGrade ?course1 ?course2)
+(isa sameSizeOfProjectGrade Predicate)
+(arity sameSizeOfProjectGrade 2)
+(arg1Isa sameSizeOfProjectGrade NUCourse)
+(arg2Isa sameSizeOfProjectGrade NUCourse)
+(comment sameSizeOfProjectGrade "(sameSizeOfProjectGrade ?course1 ?course2) says that the share of the overall grade represented by the final project in ?course1 is similar to that of ?course2")
+
+;;; (similarGradingApproach ?course1 ?course2)
+(isa similarGradingApproach Predicate)
+(arity similarGradingApproach 2)
+(arg1Isa similarGradingApproach NUCourse)
+(arg2Isa similarGradingApproach NUCourse)
+(comment similarGradingApproach "(similarGradingApproach ?course1 ?course2) says that ?course1 has a similar grading scheme to ?course2")
+
+(isa IntroToAI-Fall2018 NUCourse)
+(isa NLP-Winter2018 NUCourse)
+(isa ML-Fall2018 NUCourse)
+(isa DataSci-Fall2018 NUCourse)
+(isa CI-Spring2018 NUCourse)
+(isa KRR-Winter2018 NUCourse)
+(isa MSAIDegree NUCourse)
+
+(isa ArtificialIntelligence-Topic AcademicTopic)
+
+
+
+;;; --------- Define Cases ---------
+(isa IntroToAI-Fall2018DescriptionMt Microtheory)
+(isa NLP-Winter2018DescriptionMt Microtheory)
+(isa ML-Fall2018DescriptionMt Microtheory)
+(isa DataSci-Fall2018DescriptionMt Microtheory)
+(isa CI-Spring2018DescriptionMt Microtheory)
+(isa KRR-Winter2018DescriptionMt Microtheory)
+
+(isa IntroToAI-Fall2018DescriptionMt Case)
+(isa NLP-Winter2018DescriptionMt Case)
+(isa ML-Fall2018DescriptionMt Case)
+(isa DataSci-Fall2018DescriptionMt Case)
+(isa CI-Spring2018DescriptionMt Case)
+(isa KRR-Winter2018DescriptionMt Case)
+
+
+
+;;; --------- Define CaseLibrary ---------
+(isa CourseDescriptionsCaseLibrary CaseLibrary)
+(caseLibraryContains CourseDescriptionsCaseLibrary IntroToAI-Fall2018DescriptionMt)
+(caseLibraryContains CourseDescriptionsCaseLibrary NLP-Winter2018DescriptionMt)
+(caseLibraryContains CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt)
+(caseLibraryContains CourseDescriptionsCaseLibrary DataSci-Fall2018DescriptionMt)
+(caseLibraryContains CourseDescriptionsCaseLibrary CI-Spring2018DescriptionMt)
+
+
+
+;;; --------- Define Case Properties ---------
+(in-microtheory IntroToAI-Fall2018DescriptionMt)
+(genlMt IntroToAI-Fall2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor IntroToAI-Fall2018 WillieWilson)
+(sameProgrammingLanguage IntroToAI-Fall2018 NLP-Winter2018)
+(sameProgrammingLanguage IntroToAI-Fall2018 ML-Fall2018)
+(requiredFor IntroToAI-Fall2018 MSAIDegree)
+(laysFoundationFor IntroToAI-Fall2018 NLP-Winter2018)
+(laysFoundationFor IntroToAI-Fall2018 KRR-Winter2018)
+(sameProfessor IntroToAI-Fall2018 KRR-Winter2018)
+(sharesTopicsWith IntroToAI-Fall2018 KRR-Winter2018)
+(similarContentApproach IntroToAI-Fall2018 DataSci-Fall2018)
+(sharesTopicsWith IntroToAI-Fall2018 ML-Fall2018)
+(moreOfficeHoursThan IntroToAI-Fall2018 ML-Fall2018)
+(moreOfficeHoursThan IntroToAI-Fall2018 NLP-Winter2018)
+(moreOfficeHoursThan IntroToAI-Fall2018 DataSci-Fall2018)
+(moreOfficeHoursThan IntroToAI-Fall2018 KRR-Winter2018)
+(moreOfficeHoursThan IntroToAI-Fall2018 CI-Spring2018)
+(breadthInTopic IntroToAI-Fall2018 ArtificialIntelligence-Topic)
+
+
+
+(in-microtheory NLP-Winter2018DescriptionMt)
+(genlMt NLP-Winter2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor NLP-Winter2018 LarryBirnbaum)
+(sameProgrammingLanguage NLP-Winter2018 ML-Fall2018)
+(sameProgrammingLanguage NLP-Winter2018 IntroToAI-Fall2018)
+(requiredFor NLP-Winter2018 MSAIDegree)
+(differentAIApproach NLP-Winter2018 ML-Fall2018)
+(differentAIApproach NLP-Winter2018 DataSci-Fall2018)
+(differentContentApproach NLP-Winter2018 IntroToAI-Fall2018)
+(differentContentApproach NLP-Winter2018 DataSci-Fall2018)
+(laysFoundationFor NLP-Winter2018 CI-Spring2018)
+(sharesTopicsWith NLP-Winter2018 IntroToAI-Fall2018)
+(lessPopularThan NLP-Winter2018 ML-Fall2018)
+(depthInTopic NLP-Winter2018 ArtificialIntelligence-Topic)
+
+
+
+(in-microtheory ML-Fall2018DescriptionMt)
+(genlMt ML-Fall2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor ML-Fall2018 DougDowney)
+(sameProgrammingLanguage NLP-Winter2018 ML-Fall2018)
+(sameProgrammingLanguage NLP-Winter2018 IntroToAI-Fall2018)
+(requiredFor ML-Fall2018 MSAIDegree)
+(sharesTopicsWith ML-Fall2018 IntroToAI-Fall2018)
+(differentAIApproach ML-Fall2018 NLP-Winter2018)
+(differentAIApproach ML-Fall2018 CI-Spring2018)
+(similarContentApproach ML-Fall2018 KRR-Winter2018)
+(similarGradingApproach ML-Fall2018 IntroToAI-Fall2018)
+(moreDifficultThan ML-Fall2018 DataSci-Fall2018)
+(sameSizeOfProjectGrade ML-Fall2018 DataSci-Fall2018)
+(sameSizeOfProjectGrade ML-Fall2018 KRR-Winter2018)
+(depthInTopic ML-Fall2018 ArtificialIntelligence-Topic)
+(moreOfficeHoursThan ML-Fall2018 NLP-Winter2018)
+(moreOfficeHoursThan ML-Fall2018 CI-Spring2018)
+(moreOfficeHoursThan ML-Fall2018 DataSci-Fall2018)
+
+
+
+(in-microtheory DataSci-Fall2018DescriptionMt)
+(genlMt DataSci-Fall2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor DataSci-Fall2018 JennieRogers)
+(requiredFor DataSci-Fall2018 MSAIDegree)
+(differentAIApproach DataSci-Fall2018 NLP-Winter2018)
+(differentAIApproach DataSci-Fall2018 CI-Spring2018)
+(differentAIApproach DataSci-Fall2018 KRR-Winter2018)
+(similarContentApproach DataSci-Fall2018 IntroToAI-Fall2018)
+(sharesTopicsWith DataSci-Fall2018 ML-Fall2018)
+(moreOfficeHoursThan DataSci-Fall2018 NLP-Winter2018)
+(sameSizeOfProjectGrade DataSci-Fall2018 KRR-Winter2018)
+(sameSizeOfProjectGrade DataSci-Fall2018 ML-Fall2018)
+(breadthInTopic DataSci-Fall2018 ArtificialIntelligence-Topic)
+
+
+
+(in-microtheory CI-Spring2018DescriptionMt)
+(genlMt CI-Spring2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor CI-Spring2018 KenForbus)
+(sameProgrammingLanguage CI-Spring2018 KRR-Winter2018)
+(differentAIApproach CI-Spring2018 ML-Fall2018)
+(differentAIApproach CI-Spring2018 DataSci-Fall2018)
+(similarContentApproach CI-Spring2018 NLP-Winter2018)
+(sharesTopicsWith CI-Spring2018 NLP-Winter2018)
+(sharesTopicsWith CI-Spring2018 KRR-Winter2018)
+(moreOfficeHoursThan CI-Spring2018 NLP-Winter2018)
+(moreOfficeHoursThan CI-Spring2018 DataSci-Fall2018)
+(depthInTopic CI-Spring2018 ArtificialIntelligence-Topic)
+
+
+
+(in-microtheory KRR-Winter2018DescriptionMt)
+(genlMt KRR-Winter2018DescriptionMt CoursesForSocialModelingMt)
+(courseInstructor KRR-Winter2018 WillieWilson)
+(sameProgrammingLanguage KRR-Winter2018 CI-Spring2018)
+(requiredFor KRR-Winter2018 MSAIDegree)
+(sharesTopicsWith KRR-Winter2018 IntroToAI-Fall2018)
+(sharesTopicsWith KRR-Winter2018 CI-Spring2018)
+(differentAIApproach KRR-Winter2018 ML-Fall2018)
+(differentAIApproach KRR-Winter2018 DataSci-Fall2018)
+(sameProfessor KRR-Winter2018 IntroToAI-Fall2018)
+(laysFoundationFor KRR-Winter2018 CI-Spring2018)
+(similarContentApproach KRR-Winter2018 ML-Fall2018)
+(moreOfficeHoursThan KRR-Winter2018 ML-Fall2018)
+(moreOfficeHoursThan KRR-Winter2018 NLP-Winter2018)
+(moreOfficeHoursThan KRR-Winter2018 DataSci-Fall2018)
+(moreOfficeHoursThan KRR-Winter2018 CI-Spring2018)
+(sameSizeOfProjectGrade KRR-Winter2018 DataSci-Fall2018)
+(sameSizeOfProjectGrade KRR-Winter2018 ML-Fall2018)
+(depthInTopic IntroToAI-Fall2018 ArtificialIntelligence-Topic)
+
+
+
+;;; --------- Example using analogy in large scale ---------
+;;; Scenario
+;;; What are some similar courses to KRR-Winter2018DescriptionMt?
+;;; (reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary (TheSet)
+;;; ?case ?match)
