@@ -1,4 +1,21 @@
-(in-microtheory CoursesForSocialModelingMt)
+(in-microtheory CSAcademicAdvisor)
+
+
+
+;;; --------- Define Ontology ---------
+(isa probabilityRelated Predicate)
+(arity probabilityRelated 1)
+(arg1Isa probabilityRelated NUCouse-CS)
+(comment probabilityRelated "with substantial probability content")
+
+(isa mathHeavy Predicate)
+(arity mathHeavy 1)
+(arg1Isa mathHeavy NUCouse-CS)
+(comment mathHeavy "with substantial math content")
+
+
+
+;;; --------- Define Cases ---------
 (isa CourseDescription1Mt Microtheory)
 (isa CourseDescription2Mt Microtheory)
 (isa CourseDescription3Mt Microtheory)
@@ -9,6 +26,9 @@
 (isa CourseDescription3Mt Case)
 (isa CourseDescription4Mt Case)
 
+
+
+;;; --------- Define CaseLibrary ---------
 (isa similarCourses CaseLibrary)
 (caseLibraryContains similarCourses CourseDescription1Mt)
 (caseLibraryContains similarCourses CourseDescription2Mt)
@@ -16,61 +36,30 @@
 (caseLibraryContains similarCourses CourseDescription4Mt)
 
 
+
+;;; --------- Define Case Properties ---------
 (in-microtheory CourseDescription1Mt)
-(isa probabilityRelated Predicate)
-(arity probabilityRelated 1)
-(arg1Isa probabilityRelated NUCouse-CS)
-(comment probabilityRelated "with substantial probability content")
-
-(isa mathHeavy Predicate)
-(arity mathHeavy 1)
-(arg1Isa mathHeavy NUCouse-CS)
-(comment mathHeavy "with substantial math content")
-
+(genlMt CourseDescription1Mt CSAcademicAdvisor)
 (probabilityRelated ProbabilisticGraphicalModels-Winter2018)
 (mathHeavy ProbabilisticGraphicalModels-Winter2018)
 
 
+
 (in-microtheory CourseDescription2Mt)
-(isa probabilityRelated Predicate)
-(arity probabilityRelated 1)
-(arg1Isa probabilityRelated NUCouse-CS)
-(comment probabilityRelated "with substantial probability content")
-
-(isa mathHeavy Predicate)
-(arity mathHeavy 1)
-(arg1Isa mathHeavy NUCouse-CS)
-(comment mathHeavy "with substantial math content")
-
+(genlMt CourseDescription1Mt CSAcademicAdvisor)
 (probabilityRelated TopicsinTheoreticalMachineLearning-Winter2018)
 (mathHeavy TopicsinTheoreticalMachineLearning-Winter2018)
 
 
+
 (in-microtheory CourseDescription3Mt)
-(isa probabilityRelated Predicate)
-(arity probabilityRelated 1)
-(arg1Isa probabilityRelated NUCouse-CS)
-(comment probabilityRelated "with substantial probability content")
-
-(isa mathHeavy Predicate)
-(arity mathHeavy 1)
-(arg1Isa mathHeavy NUCouse-CS)
-(comment mathHeavy "with substantial math content")
-
+(genlMt CourseDescription1Mt CSAcademicAdvisor)
 (probabilityRelated SeminarinStatisticalLanguageModeling-Winter2018)
 (mathHeavy SeminarinStatisticalLanguageModeling-Winter2018)
 
 
+
 (in-microtheory CourseDescription4Mt)
-(isa probabilityRelated Predicate)
-(arity probabilityRelated 1)
-(arg1Isa probabilityRelated NUCouse-CS)
-(comment probabilityRelated "with substantial probability content")
-
-(isa mathHeavy Predicate)
-(arity mathHeavy 1)
-(arg1Isa mathHeavy NUCouse-CS)
-(comment mathHeavy "with substantial math content")
-
+(genlMt CourseDescription1Mt CSAcademicAdvisor)
 (probabilityRelated StatisticalPatternRecognition-Winter2018)
 (mathHeavy StatisticalPatternRecognition-Winter2018)
