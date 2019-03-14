@@ -1,7 +1,10 @@
 # Knowledge Representation and Reasoning
 
 ## Project Description
-Academic Advisor for Computer Science Majors at Northwestern University
+This project is building an Academic Advisor for Computer Science Majors at Northwestern University using knowledge representation and reasoning. All knowledge representation and reasoning are stored in [Cyc-style](https://en.wikipedia.org/wiki/Cyc) microtheories.
+
+### Highlights
+Analogical Mapping (via the Structure-Mapping Engine)
 
 ## Team Members:
 - Nico Tyjeski
@@ -11,7 +14,9 @@ Academic Advisor for Computer Science Majors at Northwestern University
 
 ## Getting Started
 ### Environment Setup
-- a working Companion
+- running Companion
+- uploading all `.krf` flatfiles to Companion
+- run queries
 
 ### Directory Structure:
      .
