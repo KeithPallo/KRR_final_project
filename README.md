@@ -56,7 +56,7 @@ Our project is structured into 3 main files - `main.krf`, `analogy.krf` and `ana
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
-**Please note that queries for `main.krf` and `analogy.krf` should be run within the `CSAcademicAdvisorMt` context; queries for `analogy_scaled.krf` should be run within the `AnalogyScaledMt` context**
+**Please note that queries for `main.krf` and `analogy.krf` should be run within the `CSAcademicAdvisorMt` context; queries for `analogy_scaled.krf` should be run within the `AnalogyScaledMt` context**.
 
 ### File 1 - main.krf
 
@@ -65,7 +65,7 @@ After setting up the environment as described above, we recommend testing our sy
 **Reasoning:** Within this file we present several different forms of reasoning. All are horn clauses, and some build upon each other for more complex reasoning. At a high level, we will be reasoning whether or not classes are appropriate/feasible for a CS student in a given term, whether or not the weekly lecture schedule of classes overlap, and what classes would be a good fit given different facets of a student's interests.
 
 - **Scenario 1** <br />
-I really liked learning about ArtificialIntelligence programming. What could I take to expand upon that knowledge? <br/>
+I really liked learning about AI programming. What could I take to expand upon that knowledge? <br/>
 Example Query: <br />
 `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
@@ -95,7 +95,7 @@ Example Query: <br />
 `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 - **Scenario 7** <br/>
-I really liked The Design of Technological Tools for Thinking and Learning. What are some courses that might be taught by professors who have a similar background? <br />
+I really liked *The Design of Technological Tools for Thinking and Learning*. What are some courses that might be taught by professors who have a similar background? <br />
 Example Query: <br />
 `(similarResearchGroup TheDesignofTechnologicalToolsforThinkingandLearning-Winter2018 ?newCourse (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
@@ -109,12 +109,12 @@ Here we describe 4 similar courses in microtheories as cases and add them all in
 We used `reminding` predicate to find courses that are similar to a course that is both probability-related and math-heavy.
 
 - **Scenario 1** <br />
-What are some similar courses to ProbabilisticGraphicalModels-Winter2018? <br />
+What are some similar courses to *Probabilistic Graphical Models (Winter 2018)*? <br />
 Example Query: <br />
 `(reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
 
 - **Scenario 2** <br />
-What are some similar courses to StatisticalPatternRecognition-Winter2018? <br />
+What are some similar courses to *Statistical Pattern Recognition (Winter 2018)*? <br />
 Example Query: <br />
 `(reminding StatisticalPatternRecognition-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses StatisticalPatternRecognition-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
 
@@ -128,12 +128,12 @@ We ontologized 16 new predicates in this file, including `differentContentApproa
 Here we describe 6 courses in microtheories as cases and add them all in a case library. As noted above, each of the 6 courses are described using a variety of predicates. We again use the `reminding` predicate to obtain courses similar to a specified course, and trust FIRE's structure-mapping engine to determine the dimensions of similarity and evaluate courses in that vein.
 
 - **Scenario 1** <br />
-What are some similar courses to KRR-Winter2018? <br />
+What are some similar courses to *Knowledge Representation and Reasoning (Winter 2018)*? <br />
 Example Query: <br />
 `(reminding KRR-Winter2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary KRR-Winter2018DescriptionMt) (TheSet) ?case ?match)`
 
 - **Scenario 2** <br />
-What are some similar courses to ML-Fall2018? <br />
+What are some similar courses to *Machine Learning (Fall 2018)*? <br />
 Example Query: <br />
 `(reminding ML-Fall2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt) (TheSet) ?case ?match)`
 
