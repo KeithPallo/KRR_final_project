@@ -46,29 +46,31 @@
 
 
 (in-microtheory TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
+(genlMt TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated TopicsinTheoreticalMachineLearning-Winter2018)
 (mathHeavy TopicsinTheoreticalMachineLearning-Winter2018)
 
 
 
 (in-microtheory SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
+(genlMt SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated SeminarinStatisticalLanguageModeling-Winter2018)
 (mathHeavy SeminarinStatisticalLanguageModeling-Winter2018)
 
 
 
 (in-microtheory StatisticalPatternRecognition-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
+(genlMt StatisticalPatternRecognition-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated StatisticalPatternRecognition-Winter2018)
 (mathHeavy StatisticalPatternRecognition-Winter2018)
 
 
 
-;;; --------- Example using analogy ---------
-;;; Scenario
+;;; --------- Examples using analogy ---------
+;;; Scenario 1
 ;;; What are some similar courses to ProbabilisticGraphicalModels-Winter2018?
-;;; (reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt
-;;; (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet)
-;;; ?similarCourse ?match)
+;;; (reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)
+
+;;; Scenario 2
+;;; What are some similar courses to StatisticalPatternRecognition-Winter2018?
+;;; (reminding StatisticalPatternRecognition-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses StatisticalPatternRecognition-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)
