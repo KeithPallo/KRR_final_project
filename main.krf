@@ -8,21 +8,26 @@
 (genls AI Topic)
 (comment AI "in AI & ML topic")
 
+
 (isa Theory Collection)
 (genls Theory Topic)
 (comment Theory "in Theory topic")
+
 
 (isa Systems Collection)
 (genls Systems Topic)
 (comment Systems "in Systems & Networks topic")
 
+
 (isa Robotics Collection)
 (genls Robotics Topic)
 (comment Robotics "in Robotics topic")
 
+
 (isa HCI Collection)
 (genls HCI Topic)
 (comment HCI "in Human-Computer Interaction topic")
+
 
 (isa inTopic Predicate)
 (arity inTopic 2)
@@ -171,6 +176,7 @@
 (inTopic TheDesignofTechnologicalToolsforThinkingandLearning-Winter2018 HCI)
 
 
+
 ;;; --------- Define Rules ---------
 (<== (appropriateFor ?course ?term)
 (courseTerm ?course ?term)
@@ -225,6 +231,7 @@
      (differentCourses ?course1 ?course2)
      (notOverlap ?course1 ?course2))
 
+
 (<== (quarterSuggestionTwo ?course1 ?course2 ?course3 ?faveTopicClass ?faveProfClass ?nextQuarter)
      (goodClassGivenTopic ?faveTopicClass ?nextQuarter ?course1)
      (goodClassGivenProfCourse ?faveProfClass ?nextQuarter ?course2)
@@ -236,6 +243,7 @@
      (differentCourses ?course2 ?course3)
      (notOverlap ?course2 ?course3))
 
+
 (<== (similarResearchGroup ?favoriteCourse ?newCourse ?term)
      (courseInstructor ?favoriteCourse ?prof1)
      (nuGroupMember ?group ?prof1)
@@ -243,6 +251,8 @@
      (different ?prof1 ?prof2)
      (courseInstructor ?newCourse ?prof2)
      (appropriateFor ?newCourse ?term))
+
+
 
 ;;; References for queries as shown in README
 
@@ -276,6 +286,7 @@
 ;;; Scenario 6
 ;;; I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two relevant courses along with a third that is logistically feasible?
 ;;; (quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))
+
 
 ;;; -------- Examples using "similarResearchGroup"
 ;;; Scenario 7
