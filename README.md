@@ -59,34 +59,34 @@ After setting up the environment as described above, we recommend testing our sy
 In this file we defined our main ontology, as explained in file.
 
 **Reasoning:** <br />
-Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
+We defined a wide range of rules as the following scenarios show:
 
-**Scenario 1** <br />
+- **Scenario 1** <br />
 I really liked learning about KRR. What could I take to expand upon that knowledge? <br/>
 Example Query: <br />
 `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
-**Scenario 2** <br />
+- **Scenario 2** <br />
 I really liked Willie’s teaching style. What could I take next quarter with him? <br/>
 Example Query: <br />
 `(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
-**Scenario 3** <br/>
+- **Scenario 3** <br/>
 I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br/>
 Example Query: <br />
 `(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
 
-**Scenario 4** <br/>
+- **Scenario 4** <br/>
 I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br/>
 Example Query: <br />
 `(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-**Scenario 5** <br/>
+- **Scenario 5** <br/>
 I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like? <br/>
 Example Query: <br />
 `(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-**Scenario 6** <br/>
+- **Scenario 6** <br/>
 I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br/>
 Example Query: <br />
 `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
@@ -100,7 +100,7 @@ Here we describe 4 similar courses in microtheories as cases and add them all in
 **Reasoning:** <br />
 We used `reminding` predicate to find courses that are similar to a course that is both probability-related and math-heavy.
 
-**Scenario 1** <br />
+- **Scenario 1** <br />
 What are some similar courses to ProbabilisticGraphicalModels-Winter2018? <br />
 Example Query: <br />
 `(reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
@@ -114,7 +114,7 @@ We in total defined 16 new ontologies in this file, including `differentContentA
 **Reasoning:** <br />
 Here we describe 6 courses in microtheories as cases and add them all in a case library. Each of the 6 courses are described using a variety of predicates.
 
-**Scenario 1** <br />
+- **Scenario 1** <br />
 What are some similar courses to KRR-Winter2018DescriptionMt? <br />
 Example Query: <br />
 `(reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary
