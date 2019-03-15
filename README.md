@@ -45,12 +45,12 @@ In order to allerivate this challenge we wish to change the model from the stude
 
 Overall, using companions we believe that we have created a system that allows CS students to ask the CS Advisor questions we personally have had. These range from simply checking if two classes are the same, two reasoning if two classes are similar based on multiple criteria. In this particular project, we have limited the scope of our queries to focus on planning one quarter ahead - although virtually all of our core representation and reasoning could easily be extended.  
 
-Note: In our repo we have also included a presentation called < > which further details the background of our project, and the goals for the system that we have created.
+Note: In our repo we have also included `Presentation.pptx` which further details the background of our project, and the goals for the system that we have created.
 
 ------------------------------------------------------------------------------
 
 ## Project Structure
-Our project is structured into XXXX main files - `main.krf` and `analogy.krf`. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
+Our project is structured into 3 main files - `main.krf`, `analogy.krf` and `analogy_scaled.krf`. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the Companion's base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
