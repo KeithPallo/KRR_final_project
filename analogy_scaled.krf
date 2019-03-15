@@ -1,5 +1,5 @@
 (in-microtheory AnalogyScaledMt)
-(genlMt AnalogyScaledMt CSAcademicAdvisor)
+(genlMt AnalogyScaledMt CSAcademicAdvisorMt)
 
 
 

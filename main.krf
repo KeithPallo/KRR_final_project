@@ -1,5 +1,5 @@
-(in-microtheory CSAcademicAdvisor)
-(genlMt CSAcademicAdvisor CoursesForSocialModelingMt)
+(in-microtheory CSAcademicAdvisorMt)
+(genlMt CSAcademicAdvisorMt CoursesForSocialModelingMt)
 
 
 

@@ -25,10 +25,10 @@ To get setup please do the following:
 - run queries (details shown below)
 
 ### Team Members:
-- Nico Tyjeski
-- Harper Pack
-- Keith Pallo
-- Albert Guo
+- Nico Tyjeski [@ntyjeski49](https://github.com/ntyjeski49)
+- Harper Pack [@harperpack](https://github.com/harperpack)
+- Keith Pallo [@KeithPallo](https://github.com/KeithPallo)
+- Albert Guo [@Albert-Z-Guo](https://github.com/Albert-Z-Guo)
 
 ------------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ Our project is structured into 3 main files - `main.krf`, `analogy.krf` and `ana
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
-**Please note that all queries should be run within the CSAcademicAdvisor context.**
+**Please note that queries for `main.krf` and `analogy.krf` should be run within the `CSAcademicAdvisorMt` context; queries for `analogy_scaled.krf` should be run within the `AnalogyScaledMt` context**
 
 ### File 1 - main.krf
 

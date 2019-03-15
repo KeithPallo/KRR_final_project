@@ -1,4 +1,4 @@
-(in-microtheory CSAcademicAdvisor)
+(in-microtheory CSAcademicAdvisorMt)
 
 
 
@@ -39,28 +39,28 @@
 
 ;;; --------- Define Case Properties ---------
 (in-microtheory ProbabilisticGraphicalModels-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated ProbabilisticGraphicalModels-Winter2018)
 (mathHeavy ProbabilisticGraphicalModels-Winter2018)
 
 
 
 (in-microtheory TopicsinTheoreticalMachineLearning-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated TopicsinTheoreticalMachineLearning-Winter2018)
 (mathHeavy TopicsinTheoreticalMachineLearning-Winter2018)
 
 
 
 (in-microtheory SeminarinStatisticalLanguageModeling-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated SeminarinStatisticalLanguageModeling-Winter2018)
 (mathHeavy SeminarinStatisticalLanguageModeling-Winter2018)
 
 
 
 (in-microtheory StatisticalPatternRecognition-Winter2018DescriptionMt)
-(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisor)
+(genlMt ProbabilisticGraphicalModels-Winter2018DescriptionMt CSAcademicAdvisorMt)
 (probabilityRelated StatisticalPatternRecognition-Winter2018)
 (mathHeavy StatisticalPatternRecognition-Winter2018)
 
