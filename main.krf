@@ -244,6 +244,8 @@
      (courseInstructor ?newCourse ?prof2)
      (appropriateFor ?newCourse ?term))
 
+;;; References for queries as shown in README
+
 ;;; --------- Examples using "goodClassGivenTopic" ---------
 ;;; Scenario 1
 ;;; I really liked learning about KRR. What could I take to expand upon that knowledge?
