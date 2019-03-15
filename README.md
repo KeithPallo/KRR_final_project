@@ -53,75 +53,84 @@ Note: In our repo we have also included a presentation called < > which further 
 ------------------------------------------------------------------------------
 
 ## Project Structure
-
-Our project is structured into XXXX main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
-
+Our project is structured into XXXX main files - `main.krf` and `analogy.krf`. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
 
-
-### File 1 - main.krf
-
-
+### File 1: main.krf
 Representation: In this file we utilize representation by ....
 
 Reasoning: Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
 
-
 #### Scenario 1 --- goodClassGivenTopic <br />
 I really liked learning about KRR. What could I take to expand upon that knowledge? <br/>
-Example Query: `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
+Example Query: <br />
+`(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
 #### Scenario 2  --- goodClassGivenProfCourse  <br />
 I really liked Willie’s teaching style. What could I take next quarter with him? <br/>
-Example Query: `(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
+Example Query: <br />
+`(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
 #### Scenario 3  ---  notOverlap <br/>
 I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br/>
-Example Query: `(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
+Example Query: <br />
+`(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
 
 #### Scenario 4 --- notOverlapTwo <br/>
 I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br/>
-Example Query: `(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+Example Query: <br />
+`(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 #### Scenario 5 --- quarterSuggestionOne <br/>
 I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two other courses I might like? <br/>
-Example Query: `(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+Example Query: <br />
+`(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 #### Scenario 6 ---- quarterSuggestionTwo <br/>
 I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br/>
-Example Query: `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+Example Query: <br />
+`(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 <br/>
 
-## File 2 - analogy.krf
+### File 2: analogy.krf
+This file contains a simple example that represents the core advanced reasoning that Analogical Matching (via the Structure-Mapping Engine).
 
-This file represents the core advanced reasoning that our system enables - which is analogy.
+Representation: <br />
+Here we describe 4 similar courses in microtheories as cases and add them all in a case library. We also defined predicates `probabilityRelated` and `mathHeavy` to denote courses are probability-related and math-heavy.
 
-Representation: ....
+Reasoning: <br />
+We used `reminding` predicate to find courses that are similar to a course that is both probability-related and math-heavy.
+
+#### Scenario 1
+What are some similar courses to ProbabilisticGraphicalModels-Winter2018? <br />
+Example Query: <br />
+`(reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
 
 
-Reasoning: ....
+### File 3: analogy_scaled.krf
+This file contains a much more complicated example that is self-contained with much more complicated ontology than the ontology in `main.krf`.
 
-<br/>
+Representation: <br />
+We in total defined 16 new ontologies in this file, including `differentContentApproach`, `moreDifficultThan`, etc.
 
-### File 3 - analogy_scaled.krf
+Reasoning: <br />
+Here we describe 6 courses in microtheories as cases and add them all in a case library. Each of the 6 courses are described using a variety of predicates.
 
-Representation: ....
+#### Scenario 1
+What are some similar courses to KRR-Winter2018DescriptionMt? <br />
+Example Query: <br />
+`(reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary
+ (TheSet) ?case ?match)`
 
-Reasoning: ....
-
-<br/>
 
 ### File 4 - <Harpers File>
-
-Representation: ....
-
+Representation: .... <br />
 Reasoning: ....
-
-<br/>
 
 ------------------------------------------------------------------------------
 
-Special Thanks: We would like to thank our class professors
+Special Thanks: <br />
+We would like to thank our class instructors: Irina Rabkina and Willie Wilson.
