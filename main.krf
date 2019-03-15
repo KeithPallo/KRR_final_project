@@ -28,7 +28,7 @@
 (arity inTopic 2)
 (arg1Isa inTopic NUCouse-CS)
 (arg2Isa inTopic Topic)
-(comment inTopic "A relation indicating a course in certAIn topic")
+(comment inTopic "A relation indicating a course in certain topic")
 
 
 (isa appropriateFor Predicate)
@@ -236,7 +236,13 @@
      (differentCourses ?course2 ?course3)
      (notOverlap ?course2 ?course3))
 
-
+(<== (courseSuggestion ?favoriteCourse ?newCourse ?term)
+     (courseInstructor ?favoriteCourse ?prof1)
+     (nuGroupMember ?group ?prof1)
+     (nuGroupMember ?group ?prof2)
+     (different ?prof1 ?prof2)
+     (courseInstructor ?newCourse ?prof2)
+     (appropriateFor ?newCourse ?term))
 
 ;;; --------- Examples using "goodClassGivenTopic" ---------
 ;;; Scenario 1
