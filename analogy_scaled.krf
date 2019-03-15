@@ -261,8 +261,14 @@
 
 
 
-;;; --------- Example using analogy in large scale ---------
-;;; Scenario
-;;; What are some similar courses to KRR-Winter2018DescriptionMt?
-;;; (reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary (TheSet)
-;;; ?case ?match)
+;;; --------- Examples using analogy in large scale ---------
+;;; note that the context for the following scenarios is AnalogyScaledMt
+;;; you also need to untell a query using analogy before querying it again
+
+;;; Scenario 1
+;;; What are some similar courses to KRR-Winter2018?
+;;; (reminding KRR-Winter2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary KRR-Winter2018DescriptionMt) (TheSet) ?case ?match)
+
+;;; Scenario 2
+;;; What are some similar courses to ML-Fall2018?
+;;; (reminding ML-Fall2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt) (TheSet) ?case ?match)

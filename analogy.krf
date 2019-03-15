@@ -67,6 +67,8 @@
 
 
 ;;; --------- Examples using analogy ---------
+;;; note that you need to untell a query using analogy before querying it again
+
 ;;; Scenario 1
 ;;; What are some similar courses to ProbabilisticGraphicalModels-Winter2018?
 ;;; (reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)
