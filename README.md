@@ -55,6 +55,8 @@ Our project is structured into 3 main files - `main.krf`, `analogy.krf` and `ana
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
+**Please note that all queries should be run within the CSAcademicAdvisor context.**
+
 ### File 1 - main.krf
 
 **Representation:** In this file we make use of, and expand upon, the information held in Companions about Northwestern University's CS department and it's courses. This includes departments, professors, research groups, years, quarters, courses, and when courses meet. We also define a series of collections for overall research areas, like AI and Systems, along with all the classes that fall under those areas.
