@@ -52,17 +52,16 @@ Note: In our repo we have also included a presentation called < > which further 
 
 ------------------------------------------------------------------------------
 
-
+## Project Structure
 
 Our project is structured into XXXX main files - main.krf and analogy.krf. Below we have documented the main functionality provided from each of these files. Overall, these files add new knowledge and representation to the companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
-=======
 
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
 
 
-## File 1 - main.krf
+### File 1 - main.krf
 
 
 Representation: In this file we utilize representation by ....
@@ -115,7 +114,7 @@ Reasoning: ....
 
 <br/>
 
-### File 4 - <Harpers File> 
+### File 4 - <Harpers File>
 
 Representation: ....
 
