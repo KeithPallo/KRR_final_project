@@ -96,8 +96,6 @@ I really liked The Design of Technological Tools for Thinking and Learning. What
 Example Query: <br />
 `(similarResearchGroup TheDesignofTechnologicalToolsforThinkingandLearning-Winter2018 ?newCourse (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-<br/>
-
 ### File 2: analogy.krf
 This file contains a simple example that represents the core advanced reasoning that Analogical Matching (via the Structure-Mapping Engine).
 
