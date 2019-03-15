@@ -10,6 +10,7 @@ We built an Academic Advisor for CS Majors at Northwestern University using know
 
 ### Directory Structure:
      .
+     ├── images                 # contains images used in README.md
      ├── .gitignore             # contains file types not to be synced with GitHub
      ├── Presentation.pptx      # project presentation                               
      ├── README.md                               
@@ -20,9 +21,9 @@ We built an Academic Advisor for CS Majors at Northwestern University using know
 
 ### Environment Setup
 To get setup please do the following:
-- run Companion
-- upload all `.krf` flatfiles to Companion
-- run queries (details shown below)
+1. run Companion
+2. upload all `.krf` flatfiles to Companion
+3. run queries (details shown below)
 
 ### Team Members:
 - Nico Tyjeski [@ntyjeski49](https://github.com/ntyjeski49)
@@ -130,4 +131,4 @@ Example Query: <br />
 ------------------------------------------------------------------------------
 
 **Special Thanks:** <br />
-We would like to thank our class instructors: Irina Rabkina and Willie Wilson for their patience and help!
+We would like to thank our class instructors: Irina Rabkina and Willie Wilson for their patience and guidance in this project! We learned a lot about knowledge representation and reasoning :]
