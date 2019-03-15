@@ -51,14 +51,13 @@ Note: In our repo we have also included `Presentation.pptx` which further detail
 ------------------------------------------------------------------------------
 
 ## Project Structure
-Our project is structured into 3 main files - `main.krf`, `analogy.krf` and `analogy_scaled.krf`. Below we have documented the main functionality provided from each of these files. These files add new knowledge and representation to the Companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
+Our project is structured into 3 main files: `main.krf`, `analogy.krf` and `analogy_scaled.krf` and 1 test file: `harper_test.krf`. Below we have documented the main functionality provided from each of these files. These files add new knowledge and representation to the Companions base, so after uploading the `.krf` files queries can be automatically run. Example queries are shown below along with scenarios in which students may use them.
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
-**Please note that queries for `main.krf` and `analogy.krf` should be run within the `CSAcademicAdvisorMt` context; queries for `analogy_scaled.krf` should be run within the `AnalogyScaledMt` context**.
+**Please note that queries for `main.krf`, `analogy.krf`, an d `harper_test.krf` should be run within the `CSAcademicAdvisorMt` context; queries for `analogy_scaled.krf` should be run within the `AnalogyScaledMt` context**.
 
 ### File 1 - main.krf
-
 **Representation:** In this file we make use of, and expand upon, the information held in Companions about Northwestern University's CS department and it's courses. This includes departments, professors, research groups, years, quarters, courses, and when courses meet. We also define a series of collections for overall research areas, like AI and Systems, along with all the classes that fall under those areas.
 
 **Reasoning:** Within this file we present several different forms of reasoning. All are horn clauses, and some build upon each other for more complex reasoning. At a high level, we will be reasoning whether or not classes are appropriate/feasible for a CS student in a given term, whether or not the weekly lecture schedule of classes overlap, and what classes would be a good fit given different facets of a student's interests.
@@ -136,9 +135,8 @@ What are some similar courses to *Machine Learning (Fall 2018)*? <br />
 Example Query: <br />
 `(reminding ML-Fall2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt) (TheSet) ?case ?match)`
 
-
 ### File 4: harper_test.krf
-This file contains an expansion of the ontology and reasoning seen within in `analogy_scaled.krf`.  The intent was to explore the capabilities of analogy to enhance the user's experience with our CS Academic Advisor.
+This test file contains an expansion of the ontology and reasoning seen within in `analogy_scaled.krf`.  The intent was to explore the capabilities of analogy to enhance the user's experience with our CS Academic Advisor.
 
 **Representation:** <br />
 We ontologized several new predicates in this file, including `courseDifficulty`, `taughtByExpert`, `breadthInDepth`, and `taughtByStudents`.  These predicates help to further embellish our descriptions of the classes in the file.  Additionally, we added two new classes (relative to `analogy_scaled.krf`) and defined them using the predicates available in the file.
@@ -155,7 +153,6 @@ Example Query: <br />
 What is a similar course to *Knowledge Representation and Reasoning (Winter 2018)* in terms of the course professor? <br />
 Example Query: <br />
 `(reminding TargetCourse000A TestCourse000CaseLibrary (requiredCorrespondence (courseInstructor ?course1 WillieWilson)  (courseInstructor ?course2 WillieWilson)) ?case ?match)`
-
 
 ------------------------------------------------------------------------------
 
