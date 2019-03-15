@@ -136,6 +136,27 @@ What are some similar courses to *Machine Learning (Fall 2018)*? <br />
 Example Query: <br />
 `(reminding ML-Fall2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt) (TheSet) ?case ?match)`
 
+
+### File 4: harper_test.krf
+This file contains an expansion of the ontology and reasoning seen within in `analogy_scaled.krf`.  The intent was to explore the capabilities of analogy to enhance the user's experience with our CS Academic Advisor.
+
+**Representation:** <br />
+We ontologized several new predicates in this file, including `courseDifficulty`, `taughtByExpert`, `breadthInDepth`, and `taughtByStudents`.  These predicates help to further embellish our descriptions of the classes in the file.  Additionally, we added two new classes (relative to `analogy_scaled.krf`) and defined them using the predicates available in the file.
+
+**Reasoning:** <br />
+Building off of the reasoning work found in `analogy.krf` and `analogy_scaled.krf`, we sought to extend analogy to consider multiple comparisons as well as to incorporate specified criteria into analogies.  We also, unsuccessfully, sought to use layered analogies, wherein we would find analogous courses along several specified dimensions and then determine which of those was most analogous to a specified 'liked' course.
+
+- **Scenario 1** <br />
+What is course that is more analogous to *Knowledge Representation and Reasoning (Winter 2018)* than it is to *Data Science (Fall 2018)* to ? <br />
+Example Query: <br />
+`(findBalance TargetCourse000A TargetCourse000B TestCourse000CaseLibrary ?caseRec)`
+
+- **Scenario 2** <br />
+What is a similar course to *Knowledge Representation and Reasoning (Winter 2018)* in terms of the course professor? <br />
+Example Query: <br />
+`(reminding TargetCourse000A TestCourse000CaseLibrary (requiredCorrespondence (courseInstructor ?course1 WillieWilson)  (courseInstructor ?course2 WillieWilson)) ?case ?match)`
+
+
 ------------------------------------------------------------------------------
 
 **Special Thanks:** <br />
