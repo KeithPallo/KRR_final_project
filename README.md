@@ -17,6 +17,7 @@ We built an Academic Advisor for CS Majors at Northwestern University using know
      ├── The FIRE Manual.pdf    # manual of the FIRE reasoning engine of Companion Cognitive Systems
      ├── analogy.krf            # file that contains analogy examples
      ├── analogy_scaled.krf     # file that contains analogy examples that are scaled significantly
+     ├── harper_test.krf        # file that contains even more complicated analogy examples under test
      └── main.krf               # main file that contains defined ontology, facts, and rules
 
 ### Environment Setup
