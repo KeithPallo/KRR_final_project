@@ -113,6 +113,11 @@ What are some similar courses to ProbabilisticGraphicalModels-Winter2018? <br />
 Example Query: <br />
 `(reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
 
+- **Scenario 2** <br />
+What are some similar courses to StatisticalPatternRecognition-Winter2018? <br />
+Example Query: <br />
+`(reminding StatisticalPatternRecognition-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses StatisticalPatternRecognition-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
+
 ### File 3: analogy_scaled.krf
 This file contains a much more complicated example that is self-contained with much more complicated ontology defined than the ontology in `main.krf`.
 
@@ -120,13 +125,17 @@ This file contains a much more complicated example that is self-contained with m
 We ontologized 16 new predicates in this file, including `differentContentApproach`, `moreDifficultThan`, etc.  These predicates help to describe the classes in this file primarily in terms of the relationships between them.
 
 **Reasoning:** <br />
-Here we describe 6 courses in microtheories as cases and add them all in a case library. As noted above, each of the 6 courses are described using a variety of predicates.  We again use the `reminding` predicate to obtain courses similar to a specified course, and trust FIRE's structure-mapping engine to determine the dimensions of similarity and evaluate courses in that vein.
+Here we describe 6 courses in microtheories as cases and add them all in a case library. As noted above, each of the 6 courses are described using a variety of predicates. We again use the `reminding` predicate to obtain courses similar to a specified course, and trust FIRE's structure-mapping engine to determine the dimensions of similarity and evaluate courses in that vein.
 
 - **Scenario 1** <br />
-What are some similar courses to KRR-Winter2018DescriptionMt? <br />
+What are some similar courses to KRR-Winter2018? <br />
 Example Query: <br />
-`(reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary
- (TheSet) ?case ?match)`
+`(reminding KRR-Winter2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary KRR-Winter2018DescriptionMt) (TheSet) ?case ?match)`
+
+- **Scenario 2** <br />
+What are some similar courses to ML-Fall2018? <br />
+Example Query: <br />
+`(reminding ML-Fall2018DescriptionMt (CaseLibrarySansFn CourseDescriptionsCaseLibrary ML-Fall2018DescriptionMt) (TheSet) ?case ?match)`
 
 ------------------------------------------------------------------------------
 
