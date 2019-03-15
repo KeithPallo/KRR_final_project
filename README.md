@@ -48,7 +48,7 @@ In order to allerivate this challenge we wish to change the model from the stude
 Overall, using companions we believe that we have created a system that allows CS students to ask the CS Advisor questions we personally have had. These range from simply checking if two classes are the same, two reasoning if two classes are similar based on multiple criteria. In this particular project, we have limited the scope of our queries to focus on planning one quarter ahead - although virtually all of our core representation and reasoning could easily be extended.  
 
 
-Note: In our repo we have also included a presentation called < > which further details the background of our project, and the goals for the system that we have created.
+Note: In our repo we have also included a presentation called Presentation.pptx which further details the background of our project, and the goals for the system that we have created.
 
 ------------------------------------------------------------------------------
 
@@ -64,13 +64,13 @@ After setting up the environment as described above, we recommend testing our sy
 ### File 1 - main.krf
 
 
-Representation: In this file we utilize representation by ....
+Representation: In this file we make use of, and expand upon, the information held in Companions about Northwestern University's CS department and it's courses. This includes departments, professors, research groups, years, quarters, courses, and when courses meet. We also define a series of collections for overall research area like AI and Systems along with all the classes that fall under those areas.
 
-Reasoning: Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
+Reasoning: Within this file we present several different forms of reasoning. All are all horn clauses, and some build upon each other for more complex reasoning. At a high level, we will be reasoning whether or not classes are appropriate/feasible for a CS student in a given term, whether or not the weekly lecture schedule of classes overlap, and what classes would be a good fit given different facets of a student's interests.
 
 
 #### Scenario 1 --- goodClassGivenTopic <br />
-I really liked learning about KRR. What could I take to expand upon that knowledge? <br/>
+I really liked learning about ArtificialIntelligence programming. What could I take to expand upon that knowledge? <br/>
 Example Query: `(goodClassGivenTopic ArtificialIntelligenceProgramming-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
 #### Scenario 2  --- goodClassGivenProfCourse  <br />
@@ -78,11 +78,11 @@ I really liked Willie’s teaching style. What could I take next quarter with hi
 Example Query: `(goodClassGivenProfCourse IntroductiontoArtificialIntelligence-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))) ?newCourse)`
 
 #### Scenario 3  ---  notOverlap <br/>
-I know what I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br/>
+I know that I want to take Data Sciene and Machine Learning. Can I take them both schedule-wise? <br/>
 Example Query: `(notOverlap DataScienceSeminar-Fall2018 MachineLearning-Fall2018)`
 
 #### Scenario 4 --- notOverlapTwo <br/>
-I want to what are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br/>
+What are the possible courses I can take without overlapping with the other 3 course that I have in mind. <br/>
 Example Query: `(notOverlapTwo ?course DataScienceSeminar-Fall2018 MachineLearning-Fall2018 ProgrammingLanguages-Fall2018 (FallQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 #### Scenario 5 --- quarterSuggestionOne <br/>
@@ -90,8 +90,13 @@ I really liked the Intro to AI course material and the teaching style of Machine
 Example Query: `(quarterSuggestionOne ?course1 ?course2 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
 #### Scenario 6 ---- quarterSuggestionTwo <br/>
-I really liked the Intro to AI course material and the teaching style of Machine Learning. What are my options, and what is a third class I can take? <br/>
+I really liked the Intro to AI course material and the teaching style of Machine Learning. What are two relevant courses along with a third that is logistically feasible? <br/>
 Example Query: `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+
+#### Scenario 7 -------- Examples using "similarResearchGroup"
+I really liked The Design of Technological Tools for Thinking and Learning. What are some courses that might be taught by professors who have a similar background.
+Example Query: `(similarResearchGroup TheDesignofTechnologicalToolsforThinkingandLearning-Winter2018 ?newCourse (SpringQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
+
 
 <br/>
 
