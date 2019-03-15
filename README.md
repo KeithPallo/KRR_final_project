@@ -8,18 +8,6 @@ In this project our group built an Academic Advisor for Computer Science Majors 
 - Analogical Matching (via the Structure-Mapping Engine) for similar courses
 - Multiple ways to recommend courses
 
-### Team Members:
-- Nico Tyjeski
-- Harper Pack
-- Keith Pallo
-- Albert Guo
-
-### Environment Setup
-To get setup please do the following:
-- run Companion
-- upload all `.krf` flatfiles to Companion
-- run queries (explanation show below)
-
 ### Directory Structure:
      .
      ├── .gitignore             # contains file types not to be synced with GitHub
@@ -30,9 +18,21 @@ To get setup please do the following:
      ├── analogy_scaled.krf     # file that contains analogy examples that scaled significantly
      └── main.krf               # main file that contains defined ontology, facts, and rules
 
+### Environment Setup
+To get setup please do the following:
+- run Companion
+- upload all `.krf` flatfiles to Companion
+- run queries (explanation show below)
+
+### Team Members:
+- Nico Tyjeski
+- Harper Pack
+- Keith Pallo
+- Albert Guo
+
 ------------------------------------------------------------------------------
 
-# Overview of Motivation
+## Overview of Motivation
 In this project, our group aimed to create an interactive version of an academic CS advisor. The motivation for this project came from some of the difficulties that arise when any Northwestern Computer Science Student is trying to plan out their future course schedule.
 
 Currently, there are several different resources that exist for students to plan out their courses. These include published course manuals, assigned academic advisors, peer course reviews (in our case CTECs) and several other systems. However, these methods often fall short as this usually results in a time consuming cycle where students move from resource to recource - partically getting information as shown here.
@@ -54,10 +54,9 @@ Our project is structured into XXXX main files - `main.krf` and `analogy.krf`. B
 
 After setting up the environment as described above, we recommend testing our system by running the example queries. However, you are free to add knowledge as laid out in the files and test custom queries as well!
 
-
 ### File 1: main.krf
 **Representation:** <br />
-In this file we utilize representation by ....
+In this file we defined our main ontology, as explained in file.
 
 **Reasoning:** <br />
 Within this file we present several different forms of reasoning, but all of them revolve around the utilization of horn clauses ....
@@ -92,7 +91,6 @@ I really liked the Intro to AI course material and the teaching style of Machine
 Example Query: <br />
 `(quarterSuggestionTwo ?course1 ?course2 ?course3 IntroductiontoArtificialIntelligence-Fall2018 MachineLearning-Fall2018 (WinterQuarterFn (AcademicYearFn NorthwesternUniversity (YearFn 2018))))`
 
-
 ### File 2: analogy.krf
 This file contains a simple example that represents the core advanced reasoning that Analogical Matching (via the Structure-Mapping Engine).
 
@@ -107,9 +105,8 @@ What are some similar courses to ProbabilisticGraphicalModels-Winter2018? <br />
 Example Query: <br />
 `(reminding ProbabilisticGraphicalModels-Winter2018DescriptionMt (CaseLibrarySansFn similarCourses ProbabilisticGraphicalModels-Winter2018DescriptionMt) (TheSet) ?similarCourse ?match)`
 
-
 ### File 3: analogy_scaled.krf
-This file contains a much more complicated example that is self-contained with much more complicated ontology than the ontology in `main.krf`.
+This file contains a much more complicated example that is self-contained with much more complicated ontology defined than the ontology in `main.krf`.
 
 **Representation:** <br />
 We in total defined 16 new ontologies in this file, including `differentContentApproach`, `moreDifficultThan`, etc.
@@ -117,12 +114,11 @@ We in total defined 16 new ontologies in this file, including `differentContentA
 **Reasoning:** <br />
 Here we describe 6 courses in microtheories as cases and add them all in a case library. Each of the 6 courses are described using a variety of predicates.
 
-**Scenario 1**
+**Scenario 1** <br />
 What are some similar courses to KRR-Winter2018DescriptionMt? <br />
 Example Query: <br />
 `(reminding KRR-Winter2018DescriptionMt CourseDescriptionsCaseLibrary
  (TheSet) ?case ?match)`
-
 
 ### File 4 - <Harpers File>
 **Representation:** <br />
@@ -132,5 +128,5 @@ Example Query: <br />
 
 ------------------------------------------------------------------------------
 
-Special Thanks: <br />
-We would like to thank our class instructors: Irina Rabkina and Willie Wilson.
+**Special Thanks:** <br />
+We would like to thank our class instructors: Irina Rabkina and Willie Wilson for their patience and help!
